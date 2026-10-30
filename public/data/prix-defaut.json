@@ -1,6 +1,9 @@
 {
   "maj": null,
-  "reservation": "Réservation en jeu, à la hutte, ou en message privé sur Discord.",
+  "commande": {
+    "texte": "Commandes et réservations : par message dans notre forum Discord, ou directement en jeu à la hutte.",
+    "discord": ""
+  },
   "categories": [
     {
       "nom": "Pêche",
@@ -84,9 +87,8 @@
   "sessions": [
     {
       "nom": "Ours",
-      "description": "On attire l'ours avec l'appât, il vient à vous : vous n'avez plus qu'à tirer. On récupère la bête ensuite.",
+      "description": "On fait venir l'ours jusqu'à vous : vous n'avez plus qu'à tirer. On récupère la bête ensuite.",
       "niveau": "Gros gibier",
-      "appat": "Viande ou poisson",
       "duree": "≈ 30 min",
       "places": "1 tireur",
       "prix": 3,
@@ -95,9 +97,8 @@
     },
     {
       "nom": "Loup",
-      "description": "Le loup arrive sur l'appât. Restez en position, un tir propre suffit. On s'occupe de la récupération.",
+      "description": "On fait venir le loup jusqu'à vous. Restez en position, un tir propre suffit. On s'occupe de la récupération.",
       "niveau": "Prédateur",
-      "appat": "Viande",
       "duree": "≈ 20 min",
       "places": "1 tireur",
       "prix": 1500,
@@ -106,9 +107,8 @@
     },
     {
       "nom": "Sanglier",
-      "description": "Idéal pour la viande. Le sanglier vient à l'appât, vous tirez, on vous le ramène.",
+      "description": "Idéal pour la viande. Le sanglier vient à vous, vous tirez, on vous le ramène.",
       "niveau": "Gibier",
-      "appat": "Fruits ou légumes",
       "duree": "≈ 20 min",
       "places": "1 tireur",
       "prix": 800,
@@ -117,9 +117,8 @@
     },
     {
       "nom": "Cerf",
-      "description": "Un tir à distance sur un cerf attiré par l'appât. Parfait pour s'entraîner au tir.",
+      "description": "Un tir à distance sur un cerf qu'on fait venir pour vous. Parfait pour s'entraîner au tir.",
       "niveau": "Gibier",
-      "appat": "Fruits ou légumes",
       "duree": "≈ 20 min",
       "places": "1 tireur",
       "prix": 600,

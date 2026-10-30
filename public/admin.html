@@ -44,6 +44,15 @@
       </div>
     </div>
 
+    <section class="panel cat order-settings">
+      <h2 class="settings-title">Commandes &amp; réservations</h2>
+      <p class="hint">Affiché sous le barème et sous les sessions de chasse, avec un bouton vers le forum.</p>
+      <div class="s-grid two">
+        <label>Lien du forum Discord<input id="discord" type="url" maxlength="300" placeholder="https://discord.com/channels/…"></label>
+        <label>Texte<input id="commande-texte" type="text" maxlength="300" placeholder="Commandes et réservations : par message dans notre forum Discord, ou directement en jeu à la hutte."></label>
+      </div>
+    </section>
+
     <nav class="tabs" role="tablist">
       <button type="button" class="tab active" data-tab="tab-bareme" role="tab">Barème</button>
       <button type="button" class="tab" data-tab="tab-sessions" role="tab">Sessions de chasse</button>
@@ -55,10 +64,6 @@
     </div>
 
     <div id="tab-sessions" class="tab-panel" hidden>
-      <section class="panel cat">
-        <label class="field-label" for="reservation">Comment réserver (affiché sous les sessions)</label>
-        <input id="reservation" type="text" maxlength="300" placeholder="ex : Réservation en jeu ou sur Discord">
-      </section>
       <div id="sessions"></div>
       <button class="btn btn-ghost" id="add-session" type="button">+ Ajouter une session</button>
     </div>
@@ -129,7 +134,6 @@
       <textarea class="s-desc" maxlength="600" rows="3" placeholder="Description : comment ça se passe, ce qui est compris…" aria-label="Description"></textarea>
       <div class="s-grid">
         <label>Étiquette<input class="s-niveau" type="text" maxlength="30" placeholder="Gros gibier"></label>
-        <label>Appât<input class="s-appat" type="text" maxlength="60" placeholder="Viande"></label>
         <label>Durée<input class="s-duree" type="text" maxlength="40" placeholder="≈ 30 min"></label>
         <label>Places<input class="s-places" type="text" maxlength="30" placeholder="1 tireur"></label>
         <label>Prix<input class="s-prix" type="number" min="0" step="1" placeholder="—"></label>

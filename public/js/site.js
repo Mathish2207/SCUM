@@ -3,7 +3,6 @@
 (async function () {
   const catalog = document.getElementById("catalog");
   const sessionList = document.getElementById("session-list");
-  const reservation = document.getElementById("reservation");
   const updated = document.getElementById("updated");
 
   const el = (tag, cls, text) => {
@@ -82,7 +81,6 @@
       card.append(top, el("h3", null, s.nom));
       if (s.description) card.append(el("p", "session-desc", s.description));
       const meta = el("ul", "session-meta");
-      if (s.appat) meta.append(el("li", null, "Appât : " + s.appat));
       if (s.duree) meta.append(el("li", null, "Durée : " + s.duree));
       if (s.places) meta.append(el("li", null, s.places));
       card.append(meta);
@@ -91,10 +89,18 @@
     }
     sessionList.replaceChildren(frag);
   }
-  if (data.reservation) {
-    reservation.textContent = data.reservation;
-    reservation.hidden = false;
-  }
+  // ---------- Commandes / réservations (forum Discord) ----------
+  const text = data.commande?.texte || data.reservation || "";
+  const link = data.commande?.discord || "";
+  document.querySelectorAll("[data-order]").forEach((box) => {
+    if (!text && !link) return;
+    box.querySelector("[data-order-text]").textContent = text;
+    const a = box.querySelector("[data-order-link]");
+    if (link) { a.href = link; a.hidden = false; }
+    box.hidden = false;
+  });
+  const nav = document.querySelector("[data-nav-discord]");
+  if (link && nav) { nav.href = link; nav.target = "_blank"; nav.rel = "noopener"; nav.hidden = false; }
 
   if (data.maj) {
     const d = new Date(data.maj);

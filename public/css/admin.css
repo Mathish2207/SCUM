@@ -174,3 +174,6 @@ textarea:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
 .s-grid label.check { flex-direction: row; align-items: center; text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--bark); padding-bottom: .55rem; }
 #add-session { margin-bottom: 2rem; }
 .s-grid input, .s-grid select { font: 400 1rem var(--font-text); text-transform: none; letter-spacing: 0; color: var(--bark); }
+.order-settings { margin-bottom: 1.5rem; }
+.settings-title { margin: 0 0 .2rem; font: 400 1.3rem var(--font-title); color: var(--rust); }
+.s-grid.two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }

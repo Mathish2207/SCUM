@@ -20,6 +20,12 @@ const image = (v) => {
   return "";
 };
 
+// Lien du forum Discord : uniquement discord.com / discord.gg en https
+const discord = (v) => {
+  const s = str(v, 300);
+  return /^https:\/\/(www\.)?(discord\.com|discord\.gg|discordapp\.com)\/[^\s"'<>]*$/.test(s) ? s : "";
+};
+
 function sanitize(input) {
   if (!input || !Array.isArray(input.categories)) throw new Error("Format invalide.");
   if (input.categories.length > 50) throw new Error("Trop de catégories (50 max).");
@@ -49,14 +55,16 @@ function sanitize(input) {
 
   return {
     maj: new Date().toISOString(),
-    reservation: str(input.reservation, 300),
+    commande: {
+      texte: str(input.commande?.texte ?? input.reservation, 300),
+      discord: discord(input.commande?.discord),
+    },
     categories,
     sessions: sessions
       .map((s) => ({
         nom: str(s?.nom, 80),
         description: str(s?.description, 600),
         niveau: str(s?.niveau, 30),
-        appat: str(s?.appat, 60),
         duree: str(s?.duree, 40),
         places: str(s?.places, 30),
         prix: money(s?.prix),

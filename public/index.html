@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>La Hutte Enchanté — Comptoir SCUM</title>
-  <meta name="description" content="La Hutte Enchanté : comptoir de chasse et de pêche sur SCUM. Achat, rachat et sessions de chasse à l'appât. Secteur B2.">
+  <meta name="description" content="La Hutte Enchanté : comptoir de chasse et de pêche sur SCUM. Achat, rachat et sessions de chasse. Commandes sur notre forum Discord. Secteur B2.">
   <link rel="icon" href="/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
 
     <div class="hero-content">
       <nav class="topnav" aria-label="Navigation">
-        <a href="#prix">Le Barème</a><a href="#sessions">Sessions de chasse</a><a href="#carte">Nous trouver</a>
+        <a href="#prix">Le Barème</a><a href="#sessions">Sessions de chasse</a><a href="#carte">Nous trouver</a><a href="#" data-nav-discord hidden>Discord</a>
       </nav>
       <p class="kicker">Comptoir de chasse &amp; pêche — SCUM</p>
       <h1 class="title">La Hutte <span>Enchanté</span></h1>
@@ -52,6 +52,13 @@
     <div class="catalog" id="catalog" aria-live="polite">
       <p class="loading">Chargement des prix…</p>
     </div>
+    <div class="order" data-order hidden>
+      <div class="order-text">
+        <strong>Commander</strong>
+        <span data-order-text></span>
+      </div>
+      <a class="btn btn-discord" data-order-link href="#" target="_blank" rel="noopener" hidden>Ouvrir le forum Discord</a>
+    </div>
   </section>
 
   <!-- ===== SESSIONS ===== -->
@@ -60,12 +67,18 @@
       <h2>Sessions de chasse</h2>
     </div>
     <ol class="steps">
-      <li><span class="step-n">1</span><strong>On appâte</strong><span>On place l'appât dans notre appareil : la bête attirée arrive.</span></li>
+      <li><span class="step-n">1</span><strong>On fait venir la bête</strong><span>Notre méthode attire la bête choisie jusqu'à vous.</span></li>
       <li><span class="step-n">2</span><strong>Vous tirez</strong><span>Vous êtes en position, vous abattez la bête.</span></li>
       <li><span class="step-n">3</span><strong>On récupère</strong><span>On va chercher la bête et on s'occupe du reste.</span></li>
     </ol>
     <div class="session-list" id="session-list"></div>
-    <p class="reservation" id="reservation" hidden></p>
+    <div class="order" data-order hidden>
+      <div class="order-text">
+        <strong>Commander</strong>
+        <span data-order-text></span>
+      </div>
+      <a class="btn btn-discord" data-order-link href="#" target="_blank" rel="noopener" hidden>Ouvrir le forum Discord</a>
+    </div>
   </section>
 
   <!-- ===== CARTE ===== -->

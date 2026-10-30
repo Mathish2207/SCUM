@@ -169,7 +169,6 @@
     node.querySelector(".s-nom").value = s.nom || "";
     node.querySelector(".s-desc").value = s.description || "";
     node.querySelector(".s-niveau").value = s.niveau || "";
-    node.querySelector(".s-appat").value = s.appat || "";
     node.querySelector(".s-duree").value = s.duree || "";
     node.querySelector(".s-places").value = s.places || "";
     node.querySelector(".s-prix").value = num(s.prix);
@@ -184,7 +183,8 @@
     sessionsBox.replaceChildren();
     (data.categories || []).forEach(addCat);
     (data.sessions || []).forEach(addSession);
-    $("reservation").value = data.reservation || "";
+    $("discord").value = data.commande?.discord || "";
+    $("commande-texte").value = data.commande?.texte || data.reservation || "";
   }
 
   // ---------- Lecture du formulaire ----------
@@ -193,7 +193,7 @@
 
   function collect() {
     return {
-      reservation: $("reservation").value.trim(),
+      commande: { texte: $("commande-texte").value.trim(), discord: $("discord").value.trim() },
       categories: [...cats.querySelectorAll(".cat")]
         .map((c) => ({
           nom: val(c, ".cat-name"),
@@ -215,7 +215,6 @@
           nom: val(n, ".s-nom"),
           description: val(n, ".s-desc"),
           niveau: val(n, ".s-niveau"),
-          appat: val(n, ".s-appat"),
           duree: val(n, ".s-duree"),
           places: val(n, ".s-places"),
           prix: optNum(val(n, ".s-prix")),
@@ -300,6 +299,11 @@
   });
 
   $("save").addEventListener("click", async () => {
+    const d = $("discord").value.trim();
+    if (d && !/^https:\/\/(www\.)?(discord\.com|discord\.gg|discordapp\.com)\//.test(d)) {
+      toast("Le lien Discord doit commencer par https://discord.com/ ou https://discord.gg/", true);
+      return;
+    }
     if (DEMO) {
       render(collect());
       dirty = false;
