@@ -220,17 +220,7 @@ img { max-width: 100%; display: block; }
 .dot-sell { background: var(--rust); }
 .dot-buy { background: var(--ok); }
 
-/* ---------- Navigation + actions de l'accueil ---------- */
-.topnav {
-  position: absolute; top: 1.2rem; right: 1.5rem;
-  display: flex; gap: 1.4rem;
-}
-.topnav a {
-  color: #f8e3b8; text-decoration: none; font-weight: 600; font-size: .95rem;
-  text-shadow: 0 1px 3px rgba(0,0,0,.8);
-  border-bottom: 1px solid transparent;
-}
-.topnav a:hover { border-color: #f2c46e; }
+/* ---------- Actions de l'accueil ---------- */
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
 .btn-light {
   background: rgba(22,11,5,.45);
@@ -322,7 +312,6 @@ img { max-width: 100%; display: block; }
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 127 96'%3E%3Cpath d='M107.7 8.1A105 105 0 0 0 81.5 0a72 72 0 0 0-3.4 6.8 97.7 97.7 0 0 0-29.1 0A72 72 0 0 0 45.6 0a105.9 105.9 0 0 0-26.3 8.1C2.8 32.7-1.7 56.6.5 80.2A105.7 105.7 0 0 0 32.7 96a77.7 77.7 0 0 0 6.9-11.2 68.4 68.4 0 0 1-10.8-5.2l2.7-2a75.6 75.6 0 0 0 64.3 0l2.7 2a68.7 68.7 0 0 1-10.9 5.2 77 77 0 0 0 6.9 11.2 105.3 105.3 0 0 0 32.2-15.8c2.6-27.4-4.5-51.1-18.9-72.1ZM42.5 65.7c-6.3 0-11.4-5.8-11.4-12.8s5-12.9 11.4-12.9 11.5 5.8 11.4 12.9-5 12.8-11.4 12.8Zm42.2 0c-6.3 0-11.4-5.8-11.4-12.8s5-12.9 11.4-12.9 11.5 5.8 11.4 12.9-5 12.8-11.4 12.8Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 .btn-discord:hover { background: linear-gradient(180deg, #7a85ff, #5560d6); }
-.topnav a[hidden] { display: none; }
 
 /* ---------- Carte ---------- */
 .location {
@@ -392,9 +381,6 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 860px) {
   .location { grid-template-columns: 1fr; gap: 2rem; padding-top: 4rem; }
-  .topnav { left: 0; right: 0; justify-content: center; top: .9rem; gap: 1rem; }
-  .topnav a { font-size: .82rem; }
-  .kicker { top: 2.8rem !important; }
 }
 @media (max-width: 420px) {
   .card-head, .item { grid-template-columns: 2.4rem 1fr 3.9rem 3.9rem; }

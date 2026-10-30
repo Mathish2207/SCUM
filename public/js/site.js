@@ -99,8 +99,7 @@
     if (link) { a.href = link; a.hidden = false; }
     box.hidden = false;
   });
-  const nav = document.querySelector("[data-nav-discord]");
-  if (link && nav) { nav.href = link; nav.target = "_blank"; nav.rel = "noopener"; nav.hidden = false; }
+
 
   if (data.maj) {
     const d = new Date(data.maj);
