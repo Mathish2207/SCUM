@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>La Hutte Enchanté — Comptoir SCUM</title>
-  <meta name="description" content="La Hutte Enchanté : comptoir de chasse et de pêche sur SCUM. Consultez nos prix.">
+  <meta name="description" content="La Hutte Enchanté : comptoir de chasse et de pêche sur SCUM. Achat, rachat, sessions de chasse encadrées. Secteur B2.">
   <link rel="icon" href="/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,25 +23,75 @@
     <div class="shade" aria-hidden="true"></div>
 
     <div class="hero-content">
+      <nav class="topnav" aria-label="Navigation">
+        <a href="#prix">Le Barème</a><a href="#sessions">Sessions de chasse</a><a href="#carte">Nous trouver</a>
+      </nav>
       <p class="kicker">Comptoir de chasse &amp; pêche — SCUM</p>
       <h1 class="title">La Hutte <span>Enchanté</span></h1>
-      <a href="#prix" class="btn">Voir nos prix</a>
+      <div class="hero-actions">
+        <a href="#prix" class="btn">Voir nos prix</a>
+        <a href="#carte" class="btn btn-light">Nous trouver</a>
+      </div>
     </div>
 
     <a href="#prix" class="scroll-cue" aria-label="Descendre vers les prix"><span></span></a>
   </header>
 
-  <!-- ===== PRIX ===== -->
-  <main id="prix" class="prices">
+  <main>
+  <!-- ===== BARÈME ===== -->
+  <section id="prix" class="prices">
     <div class="prices-head">
       <h2>Le Barème</h2>
-      <p>Nos prix du moment. Payable en jeu, à la hutte.</p>
+      <p>On vend, et on rachète votre butin. Paiement en jeu, à la hutte.</p>
       <p class="updated" id="updated" hidden></p>
     </div>
-
+    <div class="legend" aria-hidden="true">
+      <span><i class="dot dot-sell"></i>Vente : ce que vous payez</span>
+      <span><i class="dot dot-buy"></i>Rachat : ce qu'on vous donne</span>
+    </div>
     <div class="catalog" id="catalog" aria-live="polite">
       <p class="loading">Chargement des prix…</p>
     </div>
+  </section>
+
+  <!-- ===== SESSIONS ===== -->
+  <section id="sessions" class="sessions">
+    <div class="section-head">
+      <p class="eyebrow">Au départ de la hutte</p>
+      <h2>Sessions de chasse &amp; formations</h2>
+      <p>Partez avec nous dans le marécage : on vous apprend à pister, tirer, pêcher et revenir vivant.</p>
+    </div>
+    <div class="session-list" id="session-list"></div>
+    <p class="reservation" id="reservation" hidden></p>
+  </section>
+
+  <!-- ===== CARTE ===== -->
+  <div class="location-wrap">
+  <section id="carte" class="location">
+    <div class="location-text">
+      <p class="eyebrow">Où nous trouver</p>
+      <h2>Secteur B2</h2>
+      <p>La hutte se trouve au sud-ouest de l'aéroport, à deux pas du grand croisement de routes. Suivez la route principale vers le sud, la hutte est juste à l'est du chemin.</p>
+      <ul class="facts">
+        <li><strong>Secteur</strong><span>B2</span></li>
+        <li><strong>Repère</strong><span>Sud-ouest de l'aéroport</span></li>
+        <li><strong>Accès</strong><span>Par la route principale</span></li>
+      </ul>
+    </div>
+    <figure class="map">
+      <div class="map-frame">
+        <img src="/img/carte.webp" alt="Carte du secteur B2 avec l'emplacement de La Hutte Enchanté" width="960" height="964" loading="lazy">
+        <div class="pin" style="left:51.7%; top:64.8%">
+          <span class="pin-pulse" aria-hidden="true"></span>
+          <span class="pin-head"><img src="/img/ours-256.png" alt="" width="44" height="44"></span>
+          <span class="pin-label">La Hutte Enchanté</span>
+        </div>
+        <span class="compass" aria-hidden="true">N</span>
+      </div>
+      <figcaption>Le marqueur indique l'emplacement de la hutte.</figcaption>
+    </figure>
+  </section>
+  </div>
   </main>
 
   <footer class="footer">

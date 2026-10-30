@@ -1,27 +1,60 @@
 {
   "maj": null,
+  "reservation": "Réservation en jeu, à la hutte, ou en message privé sur Discord.",
   "categories": [
     {
       "nom": "Pêche",
       "items": [
-        { "nom": "Poisson frais", "prix": 150, "devise": "$", "unite": "pièce", "dispo": true },
-        { "nom": "Canne à pêche", "prix": 800, "devise": "$", "unite": "", "dispo": true },
-        { "nom": "Hameçons", "prix": 50, "devise": "$", "unite": "lot de 5", "dispo": true }
+        { "nom": "Poisson frais", "image": "", "vente": 150, "rachat": 80, "devise": "$", "unite": "pièce", "dispo": true },
+        { "nom": "Canne à pêche", "image": "", "vente": 800, "rachat": 350, "devise": "$", "unite": "", "dispo": true },
+        { "nom": "Hameçons", "image": "", "vente": 50, "rachat": null, "devise": "$", "unite": "lot de 5", "dispo": true }
       ]
     },
     {
       "nom": "Chasse",
       "items": [
-        { "nom": "Viande d'ours", "prix": 400, "devise": "$", "unite": "pièce", "dispo": true },
-        { "nom": "Peau d'ours", "prix": 2, "devise": "or", "unite": "", "dispo": false },
-        { "nom": "Cartouches 12 gauge", "prix": 300, "devise": "$", "unite": "boîte", "dispo": true }
+        { "nom": "Viande d'ours", "image": "", "vente": 400, "rachat": 200, "devise": "$", "unite": "pièce", "dispo": true },
+        { "nom": "Peau d'ours", "image": "", "vente": 2, "rachat": 1, "devise": "or", "unite": "", "dispo": false },
+        { "nom": "Cartouches 12 gauge", "image": "", "vente": 300, "rachat": 150, "devise": "$", "unite": "boîte", "dispo": true }
       ]
     },
     {
       "nom": "Armes",
       "items": [
-        { "nom": "Fusil de chasse", "prix": 5, "devise": "or", "unite": "", "dispo": true }
+        { "nom": "Fusil de chasse", "image": "", "vente": 5, "rachat": 2, "devise": "or", "unite": "", "dispo": true }
       ]
+    }
+  ],
+  "sessions": [
+    {
+      "nom": "Initiation à la chasse",
+      "description": "Repérer les traces, approcher le gibier sans se faire sentir, tirer proprement et dépecer. Idéal pour les nouveaux survivants.",
+      "niveau": "Débutant",
+      "duree": "1 h",
+      "places": "4 joueurs max",
+      "prix": 500,
+      "devise": "$",
+      "dispo": true
+    },
+    {
+      "nom": "Traque de l'ours",
+      "description": "Sortie encadrée dans le marécage à la recherche d'un ours. Équipement de base prêté, la viande et la peau sont pour vous.",
+      "niveau": "Confirmé",
+      "duree": "2 h",
+      "places": "3 joueurs max",
+      "prix": 3,
+      "devise": "or",
+      "dispo": true
+    },
+    {
+      "nom": "Pêche au marécage",
+      "description": "Les meilleurs coins de pêche autour de la hutte, le choix des appâts et la conservation du poisson.",
+      "niveau": "Tous niveaux",
+      "duree": "1 h",
+      "places": "6 joueurs max",
+      "prix": 300,
+      "devise": "$",
+      "dispo": true
     }
   ]
 }

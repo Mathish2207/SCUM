@@ -1,6 +1,6 @@
 # La Hutte Enchanté
 
-Site du magasin **La Hutte Enchanté** sur le jeu SCUM : une page d'accueil plein écran, le barème des prix, et un espace admin pour modifier les prix.
+Site du magasin **La Hutte Enchanté** sur le jeu SCUM : page d'accueil plein écran, barème vente / rachat avec l'image de chaque article, sessions de chasse et formations, carte de localisation (secteur B2), et un espace admin pour tout modifier.
 
 Le site est hébergé sur **Netlify**. Les prix sont stockés avec **Netlify Blobs**, il n'y a pas de base de données à installer.
 
@@ -19,10 +19,14 @@ Chaque `git push` sur `main` redéploie le site automatiquement.
 - **Site public :** `https://votre-site.netlify.app/`
 - **Admin :** `https://votre-site.netlify.app/admin`
 
-Dans l'admin, vous pouvez :
-- modifier le nom, le prix, la devise ($ ou or) et l'unité de chaque article ;
-- marquer un article disponible ou en rupture ;
-- ajouter, supprimer ou réordonner les articles et les catégories.
+Dans l'admin, onglet **Barème** :
+- prix de **vente** et de **rachat** (laisser « Rachat » vide si vous ne rachetez pas l'article), devise ($ ou or), unité ;
+- **image** de l'article : cliquez sur la vignette pour envoyer un fichier (PNG, JPG, WEBP, GIF ; réduit automatiquement), ou « lien » pour coller une adresse https ; clic droit sur la vignette pour la retirer ;
+- disponible / en rupture, ajout, suppression et ordre des articles et des catégories.
+
+Onglet **Sessions de chasse** :
+- texte « Comment réserver » ;
+- sessions : nom, description, niveau, durée, places, prix, et « Places dispo » (décochée = affichée « Complet »).
 
 Le bouton **Enregistrer** met le site à jour immédiatement.
 
@@ -34,9 +38,11 @@ Tant que rien n'a été enregistré depuis l'admin, le site affiche les exemples
 public/                 le site (HTML, CSS, JS, images)
   index.html            accueil + barème
   admin.html            espace admin
-  data/prix-defaut.json prix de départ
+  data/prix-defaut.json catalogue et sessions de départ
+  img/carte.webp        carte du secteur B2 (le marqueur est placé en CSS dans index.html)
 netlify/functions/      API côté serveur
   prices.mjs            GET /api/prices (lecture) · PUT /api/prices (écriture, mot de passe requis)
+  images.mjs            POST /api/img (envoi d'image, mot de passe requis) · GET /api/img/:id
   login.mjs             POST /api/login (vérification du mot de passe)
 netlify/lib/auth.mjs    contrôle du mot de passe + limite des essais
 netlify.toml            configuration Netlify

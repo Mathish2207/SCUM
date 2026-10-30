@@ -35,7 +35,7 @@
   <main class="editor" id="editor" hidden>
     <div class="editor-head">
       <div>
-        <h1>Modifier le barème</h1>
+        <h1>Gérer la hutte</h1>
         <p class="muted">Les modifications sont visibles sur le site dès que vous enregistrez.</p>
       </div>
       <div class="actions">
@@ -44,8 +44,26 @@
       </div>
     </div>
 
-    <div id="cats"></div>
+    <nav class="tabs" role="tablist">
+      <button type="button" class="tab active" data-tab="tab-bareme" role="tab">Barème</button>
+      <button type="button" class="tab" data-tab="tab-sessions" role="tab">Sessions de chasse</button>
+    </nav>
+
+    <div id="tab-bareme" class="tab-panel">
+      <p class="hint">Laissez « Rachat » vide si vous ne rachetez pas l'article. Cliquez sur la vignette pour ajouter l'image de l'article.</p>
+      <div id="cats"></div>
+    </div>
+
+    <div id="tab-sessions" class="tab-panel" hidden>
+      <section class="panel cat">
+        <label class="field-label" for="reservation">Comment réserver (affiché sous les sessions)</label>
+        <input id="reservation" type="text" maxlength="300" placeholder="ex : Réservation en jeu ou sur Discord">
+      </section>
+      <div id="sessions"></div>
+      <button class="btn btn-ghost" id="add-session" type="button">+ Ajouter une session</button>
+    </div>
   </main>
+  <input type="file" id="file-pick" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -63,7 +81,7 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Article</th><th>Prix</th><th>Devise</th><th>Unité</th><th>Dispo</th><th></th></tr>
+            <tr><th>Image</th><th>Article</th><th>Vente</th><th>Rachat</th><th>Devise</th><th>Unité</th><th>Dispo</th><th></th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -74,8 +92,14 @@
 
   <template id="tpl-item">
     <tr>
+      <td class="img-cell">
+        <button type="button" class="img-btn" data-act="img-pick" title="Choisir une image"><span>+</span></button>
+        <button type="button" class="img-link" data-act="img-url" title="Coller un lien d'image">lien</button>
+        <input class="f-image" type="hidden">
+      </td>
       <td><input class="f-nom" type="text" maxlength="80" placeholder="Nom de l'article" aria-label="Article"></td>
-      <td><input class="f-prix" type="number" min="0" step="1" inputmode="numeric" aria-label="Prix"></td>
+      <td><input class="f-vente" type="number" min="0" step="1" inputmode="numeric" aria-label="Prix de vente"></td>
+      <td><input class="f-rachat" type="number" min="0" step="1" inputmode="numeric" placeholder="—" aria-label="Prix de rachat"></td>
       <td>
         <select class="f-devise" aria-label="Devise">
           <option value="$">$</option>
@@ -90,6 +114,28 @@
         <button type="button" class="icon-btn danger" data-act="item-del" title="Supprimer">✕</button>
       </td>
     </tr>
+  </template>
+
+  <template id="tpl-session">
+    <section class="panel cat session-edit">
+      <div class="cat-head">
+        <input class="s-nom cat-name" type="text" maxlength="80" placeholder="Nom de la session" aria-label="Nom de la session">
+        <div class="cat-tools">
+          <button type="button" class="icon-btn" data-act="s-up" title="Monter">↑</button>
+          <button type="button" class="icon-btn" data-act="s-down" title="Descendre">↓</button>
+          <button type="button" class="icon-btn danger" data-act="s-del" title="Supprimer la session">✕</button>
+        </div>
+      </div>
+      <textarea class="s-desc" maxlength="600" rows="3" placeholder="Description : ce qu'on fait, ce qui est fourni…" aria-label="Description"></textarea>
+      <div class="s-grid">
+        <label>Niveau<input class="s-niveau" type="text" maxlength="30" placeholder="Débutant"></label>
+        <label>Durée<input class="s-duree" type="text" maxlength="40" placeholder="1 h"></label>
+        <label>Places<input class="s-places" type="text" maxlength="30" placeholder="4 joueurs max"></label>
+        <label>Prix<input class="s-prix" type="number" min="0" step="1" placeholder="—"></label>
+        <label>Devise<select class="s-devise"><option value="$">$</option><option value="or">Or</option></select></label>
+        <label class="check"><input class="s-dispo" type="checkbox"> Places dispo</label>
+      </div>
+    </section>
   </template>
 
   <script src="/js/prices-common.js" defer></script>
