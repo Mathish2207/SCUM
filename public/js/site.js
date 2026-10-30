@@ -65,6 +65,92 @@
       frag.append(card);
     }
     catalog.replaceChildren(frag);
+    setupFilters(cats);
+  }
+
+  // ---------- Recherche + filtres du barème ----------
+  // Recherche sans accents ni majuscules : « peau ours » trouve « Peau d'ours »
+  function norm(s) {
+    return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  function setupFilters(cats) {
+    const toolbar = document.getElementById("toolbar");
+    const input = document.getElementById("search");
+    const chipsBox = document.getElementById("chips");
+    const onlyDispo = document.getElementById("only-dispo");
+    const count = document.getElementById("count");
+    const noResult = document.getElementById("no-result");
+    const cards = [...catalog.querySelectorAll(".card")];
+    const total = catalog.querySelectorAll(".item").length;
+    let activeCat = "";
+
+    // index de recherche sur chaque ligne
+    cards.forEach((card, i) => {
+      card.dataset.cat = String(i);
+      card.querySelectorAll(".item").forEach((li) => {
+        li.dataset.search = norm(li.querySelector(".item-label").textContent + " " + (li.querySelector(".item-unit")?.textContent || "") + " " + cats[i].nom);
+      });
+    });
+
+    const mkChip = (label, value) => {
+      const b = el("button", "chip" + (value === "" ? " active" : ""), label);
+      b.type = "button";
+      b.dataset.value = value;
+      b.setAttribute("aria-pressed", value === "" ? "true" : "false");
+      return b;
+    };
+    chipsBox.append(mkChip("Tout", ""), ...cats.map((c, i) => mkChip(c.nom, String(i))));
+
+    function apply() {
+      const words = norm(input.value).split(" ").filter(Boolean);
+      let shown = 0;
+      for (const card of cards) {
+        let inCard = 0;
+        const catOk = !activeCat || card.dataset.cat === activeCat;
+        card.querySelectorAll(".item").forEach((li) => {
+          const ok = catOk && words.every((w) => li.dataset.search.includes(w)) && (!onlyDispo.checked || !li.classList.contains("out"));
+          li.hidden = !ok;
+          if (ok) inCard++;
+        });
+        card.hidden = inCard === 0;
+        shown += inCard;
+      }
+      const filtered = words.length || activeCat || onlyDispo.checked;
+      count.textContent = filtered ? `${shown} article${shown > 1 ? "s" : ""} sur ${total}` : `${total} article${total > 1 ? "s" : ""}`;
+      noResult.hidden = shown > 0;
+      catalog.classList.toggle("filtered", Boolean(words.length));
+    }
+
+    input.addEventListener("input", apply);
+    onlyDispo.addEventListener("change", apply);
+    chipsBox.addEventListener("click", (e) => {
+      const b = e.target.closest(".chip");
+      if (!b) return;
+      activeCat = b.dataset.value;
+      chipsBox.querySelectorAll(".chip").forEach((c) => {
+        c.classList.toggle("active", c === b);
+        c.setAttribute("aria-pressed", c === b ? "true" : "false");
+      });
+      apply();
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+      input.value = ""; onlyDispo.checked = false; activeCat = "";
+      chipsBox.querySelector('[data-value=""]').click();
+      input.focus();
+    });
+    // raccourci clavier « / » pour aller dans la recherche
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && !/^(input|textarea|select)$/i.test(document.activeElement.tagName)) {
+        e.preventDefault();
+        input.focus();
+        input.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      if (e.key === "Escape" && document.activeElement === input) { input.value = ""; apply(); }
+    });
+
+    toolbar.hidden = false;
+    apply();
   }
 
   // ---------- Sessions ----------
