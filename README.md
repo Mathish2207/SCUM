@@ -24,7 +24,7 @@ Dans l'admin, onglet **Barème** :
 - **image** de l'article : cliquez sur la vignette pour envoyer un fichier (PNG, JPG, WEBP, GIF ; réduit automatiquement), ou « lien » pour coller une adresse https ; clic droit sur la vignette pour la retirer ;
 - disponible / en rupture, ajout, suppression et ordre des articles et des catégories.
 
-En haut de l'admin, **Commandes & réservations** : lien du forum Discord et texte affiché sous le barème et sous les sessions (avec un bouton « Ouvrir le forum Discord »).
+En haut de l’admin, **Commandes & réservations** : lien du post « Commande » du forum Discord et texte affiché sous le barème et sous les sessions (avec un bouton vers ce post).
 
 Onglet **Sessions de chasse** :
 - sessions de chasse (une par bête) : nom, description, étiquette, durée, places, prix, et « Places dispo » (décochée = affichée « Complet »).
