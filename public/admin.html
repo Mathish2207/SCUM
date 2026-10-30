@@ -119,18 +119,19 @@
   <template id="tpl-session">
     <section class="panel cat session-edit">
       <div class="cat-head">
-        <input class="s-nom cat-name" type="text" maxlength="80" placeholder="Nom de la session" aria-label="Nom de la session">
+        <input class="s-nom cat-name" type="text" maxlength="80" placeholder="Bête (ex : Ours)" aria-label="Nom de la session">
         <div class="cat-tools">
           <button type="button" class="icon-btn" data-act="s-up" title="Monter">↑</button>
           <button type="button" class="icon-btn" data-act="s-down" title="Descendre">↓</button>
           <button type="button" class="icon-btn danger" data-act="s-del" title="Supprimer la session">✕</button>
         </div>
       </div>
-      <textarea class="s-desc" maxlength="600" rows="3" placeholder="Description : ce qu'on fait, ce qui est fourni…" aria-label="Description"></textarea>
+      <textarea class="s-desc" maxlength="600" rows="3" placeholder="Description : comment ça se passe, ce qui est compris…" aria-label="Description"></textarea>
       <div class="s-grid">
-        <label>Niveau<input class="s-niveau" type="text" maxlength="30" placeholder="Débutant"></label>
-        <label>Durée<input class="s-duree" type="text" maxlength="40" placeholder="1 h"></label>
-        <label>Places<input class="s-places" type="text" maxlength="30" placeholder="4 joueurs max"></label>
+        <label>Étiquette<input class="s-niveau" type="text" maxlength="30" placeholder="Gros gibier"></label>
+        <label>Appât<input class="s-appat" type="text" maxlength="60" placeholder="Viande"></label>
+        <label>Durée<input class="s-duree" type="text" maxlength="40" placeholder="≈ 30 min"></label>
+        <label>Places<input class="s-places" type="text" maxlength="30" placeholder="1 tireur"></label>
         <label>Prix<input class="s-prix" type="number" min="0" step="1" placeholder="—"></label>
         <label>Devise<select class="s-devise"><option value="$">$</option><option value="or">Or</option></select></label>
         <label class="check"><input class="s-dispo" type="checkbox"> Places dispo</label>

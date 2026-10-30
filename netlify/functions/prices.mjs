@@ -56,6 +56,7 @@ function sanitize(input) {
         nom: str(s?.nom, 80),
         description: str(s?.description, 600),
         niveau: str(s?.niveau, 30),
+        appat: str(s?.appat, 60),
         duree: str(s?.duree, 40),
         places: str(s?.places, 30),
         prix: money(s?.prix),

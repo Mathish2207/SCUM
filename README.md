@@ -1,6 +1,6 @@
 # La Hutte Enchanté
 
-Site du magasin **La Hutte Enchanté** sur le jeu SCUM : page d'accueil plein écran, barème vente / rachat avec l'image de chaque article, sessions de chasse et formations, carte de localisation (secteur B2), et un espace admin pour tout modifier.
+Site du magasin **La Hutte Enchanté** sur le jeu SCUM : page d'accueil plein écran, barème vente / rachat avec l'image de chaque article, sessions de chasse à l’appât, carte de localisation (secteur B2), et un espace admin pour tout modifier.
 
 Le site est hébergé sur **Netlify**. Les prix sont stockés avec **Netlify Blobs**, il n'y a pas de base de données à installer.
 
@@ -26,7 +26,7 @@ Dans l'admin, onglet **Barème** :
 
 Onglet **Sessions de chasse** :
 - texte « Comment réserver » ;
-- sessions : nom, description, niveau, durée, places, prix, et « Places dispo » (décochée = affichée « Complet »).
+- sessions de chasse (une par bête) : nom, description, étiquette, appât, durée, places, prix, et « Places dispo » (décochée = affichée « Complet »).
 
 Le bouton **Enregistrer** met le site à jour immédiatement.
 

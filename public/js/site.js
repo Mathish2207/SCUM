@@ -82,6 +82,7 @@
       card.append(top, el("h3", null, s.nom));
       if (s.description) card.append(el("p", "session-desc", s.description));
       const meta = el("ul", "session-meta");
+      if (s.appat) meta.append(el("li", null, "Appât : " + s.appat));
       if (s.duree) meta.append(el("li", null, "Durée : " + s.duree));
       if (s.places) meta.append(el("li", null, s.places));
       card.append(meta);

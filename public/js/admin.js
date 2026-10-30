@@ -169,6 +169,7 @@
     node.querySelector(".s-nom").value = s.nom || "";
     node.querySelector(".s-desc").value = s.description || "";
     node.querySelector(".s-niveau").value = s.niveau || "";
+    node.querySelector(".s-appat").value = s.appat || "";
     node.querySelector(".s-duree").value = s.duree || "";
     node.querySelector(".s-places").value = s.places || "";
     node.querySelector(".s-prix").value = num(s.prix);
@@ -214,6 +215,7 @@
           nom: val(n, ".s-nom"),
           description: val(n, ".s-desc"),
           niveau: val(n, ".s-niveau"),
+          appat: val(n, ".s-appat"),
           duree: val(n, ".s-duree"),
           places: val(n, ".s-places"),
           prix: optNum(val(n, ".s-prix")),

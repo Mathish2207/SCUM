@@ -410,3 +410,25 @@ img { max-width: 100%; display: block; }
 }
 
 .footer img { border-radius: 50%; border: 2px solid #b8742c; }
+
+/* ---------- Sessions : le principe en 3 étapes ---------- */
+.steps {
+  list-style: none; padding: 0;
+  max-width: 1100px; margin: 0 auto 2.6rem;
+  display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  counter-reset: none;
+}
+.steps li {
+  display: grid; grid-template-columns: auto 1fr; gap: .15rem .9rem; align-items: center;
+  padding: 1rem 1.2rem; border-radius: 6px;
+  background: rgba(242,196,110,.07); border: 1px solid rgba(242,196,110,.22);
+}
+.step-n {
+  grid-row: span 2;
+  width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  display: grid; place-items: center;
+  font: 400 1.2rem var(--font-title); color: #160b05; background: #f2c46e;
+}
+.steps strong { color: #fbe9c6; font-size: 1.05rem; }
+.steps span:not(.step-n) { color: #e9d3a6; font-size: .92rem; line-height: 1.45; }
+.session-list { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
