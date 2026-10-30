@@ -538,3 +538,14 @@ img { max-width: 100%; display: block; }
   .tile-prices { justify-content: center; font-size: .82rem; flex-wrap: wrap; }
   .tile-meta { justify-content: center; }
 }
+
+/* ---------- Argument prix vs marchands ---------- */
+.deal { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1rem; }
+.deal span {
+  padding: .45rem .9rem; border-radius: 99px; font-size: .92rem;
+  background: var(--sand-light); border: 1px solid rgba(184,116,44,.55);
+  box-shadow: 0 3px 10px rgba(61,36,20,.1);
+}
+.deal span:first-child strong { color: var(--rust); }
+.deal span:last-child strong { color: var(--ok); }
+.deal strong { font-size: 1rem; }
