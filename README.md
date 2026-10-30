@@ -57,3 +57,12 @@ npx netlify-cli dev
 ```
 
 Puis ouvrez http://localhost:8888. Pour l'admin en local, définissez `ADMIN_PASSWORD` dans un fichier `.env`.
+
+## Branches
+
+- **`main`** = production. Chaque push sur `main` met le site en ligne à jour.
+- **`dev`** = développement des prochains ajouts. Les pushs sur `dev` **ne déclenchent aucun build Netlify**
+  (règle `ignore` dans `netlify.toml`), donc aucune consommation de minutes de build.
+
+Pour mettre en ligne les ajouts de `dev` : ouvrir une pull request `dev` → `main`, puis la fusionner.
+Seule la fusion déclenche le build de production.
