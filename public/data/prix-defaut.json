@@ -11,7 +11,7 @@
       "items": [
         {
           "nom": "Appât ablette",
-          "image": "",
+          "image": "/img/items/appat-ablette.webp",
           "vente": 12,
           "rachat": 8,
           "devise": "$",
@@ -20,7 +20,7 @@
         },
         {
           "nom": "Appât bouillette",
-          "image": "",
+          "image": "/img/items/appat-bouillette.webp",
           "vente": 6,
           "rachat": 4,
           "devise": "$",
@@ -29,7 +29,7 @@
         },
         {
           "nom": "Appât fromage",
-          "image": "",
+          "image": "/img/items/appat-fromage.webp",
           "vente": 6,
           "rachat": 4,
           "devise": "$",
@@ -38,7 +38,7 @@
         },
         {
           "nom": "Appât grillon",
-          "image": "",
+          "image": "/img/items/appat-grillon.webp",
           "vente": 3,
           "rachat": 2,
           "devise": "$",
@@ -47,7 +47,7 @@
         },
         {
           "nom": "Appât maïs",
-          "image": "",
+          "image": "/img/items/appat-mais.webp",
           "vente": 6,
           "rachat": 4,
           "devise": "$",
@@ -56,7 +56,7 @@
         },
         {
           "nom": "Appât pain",
-          "image": "",
+          "image": "/img/items/appat-pain.webp",
           "vente": 6,
           "rachat": 4,
           "devise": "$",
@@ -65,7 +65,7 @@
         },
         {
           "nom": "Appât sardine",
-          "image": "",
+          "image": "/img/items/appat-sardine.webp",
           "vente": 5,
           "rachat": 3,
           "devise": "$",
@@ -74,7 +74,7 @@
         },
         {
           "nom": "Appât sauterelle",
-          "image": "",
+          "image": "/img/items/appat-sauterelle.webp",
           "vente": 6,
           "rachat": 4,
           "devise": "$",
@@ -83,7 +83,7 @@
         },
         {
           "nom": "Appât ver",
-          "image": "",
+          "image": "/img/items/appat-ver.webp",
           "vente": 5,
           "rachat": 3,
           "devise": "$",
@@ -92,7 +92,7 @@
         },
         {
           "nom": "Appât ver de terre",
-          "image": "",
+          "image": "/img/items/appat-ver-de-terre.webp",
           "vente": 5,
           "rachat": 3,
           "devise": "$",
@@ -101,7 +101,7 @@
         },
         {
           "nom": "Paquet de bouillettes premium",
-          "image": "",
+          "image": "/img/items/paquet-de-bouillettes-premium.webp",
           "vente": 54,
           "rachat": 34,
           "devise": "$",
@@ -116,7 +116,7 @@
       "items": [
         {
           "nom": "Canne à pêche",
-          "image": "",
+          "image": "/img/items/canne-a-peche.webp",
           "vente": 2400,
           "rachat": 1500,
           "devise": "$",
@@ -125,7 +125,7 @@
         },
         {
           "nom": "Moulinet",
-          "image": "",
+          "image": "/img/items/moulinet.webp",
           "vente": 960,
           "rachat": 600,
           "devise": "$",
@@ -134,7 +134,7 @@
         },
         {
           "nom": "Fishing Reel Pro",
-          "image": "",
+          "image": "/img/items/fishing-reel-pro.webp",
           "vente": 1440,
           "rachat": 900,
           "devise": "$",
@@ -143,7 +143,7 @@
         },
         {
           "nom": "Boîte de flotteurs (verte)",
-          "image": "",
+          "image": "/img/items/boite-de-flotteurs-verte.webp",
           "vente": 600,
           "rachat": 375,
           "devise": "$",
@@ -152,7 +152,7 @@
         },
         {
           "nom": "Boîte de flotteurs (bleue)",
-          "image": "",
+          "image": "/img/items/boite-de-flotteurs-bleue.webp",
           "vente": 900,
           "rachat": 562,
           "devise": "$",
@@ -161,7 +161,7 @@
         },
         {
           "nom": "Flotteur (rond)",
-          "image": "",
+          "image": "/img/items/flotteur-rond.webp",
           "vente": 90,
           "rachat": 56,
           "devise": "$",
@@ -170,7 +170,7 @@
         },
         {
           "nom": "Flotteur (fin)",
-          "image": "",
+          "image": "/img/items/flotteur-fin.webp",
           "vente": 60,
           "rachat": 38,
           "devise": "$",
@@ -179,7 +179,7 @@
         },
         {
           "nom": "Petit hameçon",
-          "image": "",
+          "image": "/img/items/petit-hamecon.webp",
           "vente": 42,
           "rachat": 26,
           "devise": "$",
@@ -188,7 +188,7 @@
         },
         {
           "nom": "Hameçon artisanal",
-          "image": "",
+          "image": "/img/items/hamecon-artisanal.webp",
           "vente": 6,
           "rachat": 4,
           "devise": "$",
@@ -197,7 +197,7 @@
         },
         {
           "nom": "Hameçon moyen",
-          "image": "",
+          "image": "/img/items/hamecon-moyen.webp",
           "vente": 66,
           "rachat": 41,
           "devise": "$",
@@ -206,7 +206,7 @@
         },
         {
           "nom": "Hameçon double",
-          "image": "",
+          "image": "/img/items/hamecon-double.webp",
           "vente": 78,
           "rachat": 49,
           "devise": "$",
@@ -215,7 +215,7 @@
         },
         {
           "nom": "Hameçon triple",
-          "image": "",
+          "image": "/img/items/hamecon-triple.webp",
           "vente": 90,
           "rachat": 56,
           "devise": "$",
@@ -224,7 +224,7 @@
         },
         {
           "nom": "Paquet de petits hameçons",
-          "image": "",
+          "image": "/img/items/paquet-de-petits-hamecons.webp",
           "vente": 360,
           "rachat": 225,
           "devise": "$",
@@ -233,7 +233,7 @@
         },
         {
           "nom": "Paquet d'hameçons moyens",
-          "image": "",
+          "image": "/img/items/paquet-d-hamecons-moyens.webp",
           "vente": 660,
           "rachat": 412,
           "devise": "$",
@@ -242,7 +242,7 @@
         },
         {
           "nom": "Paquet d'hameçons doubles",
-          "image": "",
+          "image": "/img/items/paquet-d-hamecons-doubles.webp",
           "vente": 816,
           "rachat": 510,
           "devise": "$",
@@ -251,7 +251,7 @@
         },
         {
           "nom": "Paquet d'hameçons triples",
-          "image": "",
+          "image": "/img/items/paquet-d-hamecons-triples.webp",
           "vente": 840,
           "rachat": 525,
           "devise": "$",
@@ -260,7 +260,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.12 mm (fine)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-12-mm-fine-petite.webp",
           "vente": 24,
           "rachat": 15,
           "devise": "$",
@@ -269,7 +269,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.12 mm (fine)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-12-mm-fine-bobine.webp",
           "vente": 240,
           "rachat": 150,
           "devise": "$",
@@ -278,7 +278,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.18 mm (moyenne)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-18-mm-moyenne-petite.webp",
           "vente": 36,
           "rachat": 22,
           "devise": "$",
@@ -287,7 +287,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.18 mm (moyenne)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-18-mm-moyenne-bobine.webp",
           "vente": 360,
           "rachat": 225,
           "devise": "$",
@@ -296,7 +296,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.25 mm (épaisse)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-25-mm-epaisse-petite.webp",
           "vente": 48,
           "rachat": 30,
           "devise": "$",
@@ -305,7 +305,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.25 mm (épaisse)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-25-mm-epaisse-bobine.webp",
           "vente": 480,
           "rachat": 300,
           "devise": "$",
@@ -314,7 +314,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.5 mm (épaisse)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-5-mm-epaisse-petite.webp",
           "vente": 96,
           "rachat": 60,
           "devise": "$",
@@ -323,7 +323,7 @@
         },
         {
           "nom": "Ligne en nylon de 0.5 mm (épaisse)",
-          "image": "",
+          "image": "/img/items/ligne-en-nylon-de-0-5-mm-epaisse-bobine.webp",
           "vente": 960,
           "rachat": 600,
           "devise": "$",
@@ -332,7 +332,7 @@
         },
         {
           "nom": "Angler Waders",
-          "image": "",
+          "image": "/img/items/angler-waders.webp",
           "vente": 960,
           "rachat": 600,
           "devise": "$",
@@ -347,7 +347,7 @@
       "items": [
         {
           "nom": "Steak d'ours",
-          "image": "",
+          "image": "/img/items/steak-d-ours.webp",
           "vente": 216,
           "rachat": null,
           "devise": "$",
@@ -356,7 +356,7 @@
         },
         {
           "nom": "Steak de loup",
-          "image": "",
+          "image": "/img/items/steak-de-loup.webp",
           "vente": 173,
           "rachat": null,
           "devise": "$",
@@ -365,7 +365,7 @@
         },
         {
           "nom": "Steak de cheval",
-          "image": "",
+          "image": "/img/items/steak-de-cheval.webp",
           "vente": 173,
           "rachat": null,
           "devise": "$",
@@ -374,7 +374,7 @@
         },
         {
           "nom": "Steak d'âne",
-          "image": "",
+          "image": "/img/items/steak-d-ane.webp",
           "vente": 130,
           "rachat": null,
           "devise": "$",
@@ -383,7 +383,7 @@
         },
         {
           "nom": "Steak de chèvre",
-          "image": "",
+          "image": "/img/items/steak-de-chevre.webp",
           "vente": 130,
           "rachat": null,
           "devise": "$",
@@ -392,7 +392,7 @@
         },
         {
           "nom": "Steak de biche",
-          "image": "",
+          "image": "/img/items/steak-de-biche.webp",
           "vente": 43,
           "rachat": null,
           "devise": "$",
@@ -401,7 +401,7 @@
         },
         {
           "nom": "Poulet plumé",
-          "image": "",
+          "image": "/img/items/poulet-plume.webp",
           "vente": 173,
           "rachat": null,
           "devise": "$",
@@ -410,7 +410,7 @@
         },
         {
           "nom": "Pilon de poulet",
-          "image": "",
+          "image": "/img/items/pilon-de-poulet.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -419,7 +419,7 @@
         },
         {
           "nom": "Viande de poulet",
-          "image": "",
+          "image": "/img/items/viande-de-poulet.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -428,7 +428,7 @@
         },
         {
           "nom": "Cuisse de lapin",
-          "image": "",
+          "image": "/img/items/cuisse-de-lapin.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -437,7 +437,7 @@
         },
         {
           "nom": "Viande de lapin",
-          "image": "",
+          "image": "/img/items/viande-de-lapin.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -446,7 +446,7 @@
         },
         {
           "nom": "Crow Meat",
-          "image": "",
+          "image": "/img/items/crow-meat.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -455,7 +455,7 @@
         },
         {
           "nom": "Seagull Meat",
-          "image": "",
+          "image": "/img/items/seagull-meat.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -464,7 +464,7 @@
         },
         {
           "nom": "Graisse animale",
-          "image": "",
+          "image": "/img/items/graisse-animale.webp",
           "vente": 17,
           "rachat": null,
           "devise": "$",
@@ -473,7 +473,7 @@
         },
         {
           "nom": "Graisse animale (L)",
-          "image": "",
+          "image": "/img/items/graisse-animale-l.webp",
           "vente": 86,
           "rachat": null,
           "devise": "$",
@@ -488,7 +488,7 @@
       "items": [
         {
           "nom": "Distributeur d'appâts",
-          "image": "",
+          "image": "/img/items/distributeur-d-appats.webp",
           "vente": 1280,
           "rachat": 800,
           "devise": "$",
@@ -497,7 +497,7 @@
         },
         {
           "nom": "Boussole avancée",
-          "image": "",
+          "image": "/img/items/boussole-avancee.webp",
           "vente": 2000,
           "rachat": 1250,
           "devise": "$",
@@ -506,7 +506,7 @@
         },
         {
           "nom": "Jumelles",
-          "image": "",
+          "image": "/img/items/jumelles.webp",
           "vente": 1600,
           "rachat": 1000,
           "devise": "$",
@@ -521,7 +521,7 @@
       "items": [
         {
           "nom": "Plume",
-          "image": "",
+          "image": "/img/items/plume.webp",
           "vente": 4,
           "rachat": 2,
           "devise": "$",

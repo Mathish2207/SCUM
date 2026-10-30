@@ -192,3 +192,4 @@ textarea:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
 .hint-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; margin-bottom: 1rem; }
 .hint-row .hint { margin: 0; }
 .hint-row .link-btn { margin: 0; }
+.img-btn:has(img) { background: #2a2a2a; }
