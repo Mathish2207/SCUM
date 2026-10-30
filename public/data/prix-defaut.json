@@ -6,78 +6,525 @@
   },
   "categories": [
     {
-      "nom": "Pêche",
+      "nom": "Appâts",
+      "visible": true,
       "items": [
         {
-          "nom": "Poisson frais",
+          "nom": "Appât ablette",
           "image": "",
-          "vente": 150,
-          "rachat": 80,
+          "vente": 12,
+          "rachat": 8,
           "devise": "$",
-          "unite": "pièce",
+          "unite": "",
           "dispo": true
         },
+        {
+          "nom": "Appât bouillette",
+          "image": "",
+          "vente": 6,
+          "rachat": 4,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât fromage",
+          "image": "",
+          "vente": 6,
+          "rachat": 4,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât grillon",
+          "image": "",
+          "vente": 3,
+          "rachat": 2,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât maïs",
+          "image": "",
+          "vente": 6,
+          "rachat": 4,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât pain",
+          "image": "",
+          "vente": 6,
+          "rachat": 4,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât sardine",
+          "image": "",
+          "vente": 5,
+          "rachat": 3,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât sauterelle",
+          "image": "",
+          "vente": 6,
+          "rachat": 4,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât ver",
+          "image": "",
+          "vente": 5,
+          "rachat": 3,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Appât ver de terre",
+          "image": "",
+          "vente": 5,
+          "rachat": 3,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Paquet de bouillettes premium",
+          "image": "",
+          "vente": 54,
+          "rachat": 34,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        }
+      ]
+    },
+    {
+      "nom": "Pêche",
+      "visible": true,
+      "items": [
         {
           "nom": "Canne à pêche",
           "image": "",
-          "vente": 800,
-          "rachat": 350,
+          "vente": 2400,
+          "rachat": 1500,
           "devise": "$",
           "unite": "",
           "dispo": true
         },
         {
-          "nom": "Hameçons",
+          "nom": "Moulinet",
           "image": "",
-          "vente": 50,
-          "rachat": null,
+          "vente": 960,
+          "rachat": 600,
           "devise": "$",
-          "unite": "lot de 5",
-          "dispo": true
-        }
-      ]
-    },
-    {
-      "nom": "Chasse",
-      "items": [
-        {
-          "nom": "Viande d'ours",
-          "image": "",
-          "vente": 400,
-          "rachat": 200,
-          "devise": "$",
-          "unite": "pièce",
-          "dispo": true
-        },
-        {
-          "nom": "Peau d'ours",
-          "image": "",
-          "vente": 2,
-          "rachat": 1,
-          "devise": "or",
           "unite": "",
-          "dispo": false
+          "dispo": true
         },
         {
-          "nom": "Cartouches 12 gauge",
+          "nom": "Fishing Reel Pro",
           "image": "",
-          "vente": 300,
+          "vente": 1440,
+          "rachat": 900,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Boîte de flotteurs (verte)",
+          "image": "",
+          "vente": 600,
+          "rachat": 375,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Boîte de flotteurs (bleue)",
+          "image": "",
+          "vente": 900,
+          "rachat": 562,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Flotteur (rond)",
+          "image": "",
+          "vente": 90,
+          "rachat": 56,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Flotteur (fin)",
+          "image": "",
+          "vente": 60,
+          "rachat": 38,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Petit hameçon",
+          "image": "",
+          "vente": 42,
+          "rachat": 26,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Hameçon artisanal",
+          "image": "",
+          "vente": 6,
+          "rachat": 4,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Hameçon moyen",
+          "image": "",
+          "vente": 66,
+          "rachat": 41,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Hameçon double",
+          "image": "",
+          "vente": 78,
+          "rachat": 49,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Hameçon triple",
+          "image": "",
+          "vente": 90,
+          "rachat": 56,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Paquet de petits hameçons",
+          "image": "",
+          "vente": 360,
+          "rachat": 225,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Paquet d'hameçons moyens",
+          "image": "",
+          "vente": 660,
+          "rachat": 412,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Paquet d'hameçons doubles",
+          "image": "",
+          "vente": 816,
+          "rachat": 510,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Paquet d'hameçons triples",
+          "image": "",
+          "vente": 840,
+          "rachat": 525,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.12 mm (fine)",
+          "image": "",
+          "vente": 24,
+          "rachat": 15,
+          "devise": "$",
+          "unite": "petite",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.12 mm (fine)",
+          "image": "",
+          "vente": 240,
           "rachat": 150,
           "devise": "$",
-          "unite": "boîte",
+          "unite": "bobine",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.18 mm (moyenne)",
+          "image": "",
+          "vente": 36,
+          "rachat": 22,
+          "devise": "$",
+          "unite": "petite",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.18 mm (moyenne)",
+          "image": "",
+          "vente": 360,
+          "rachat": 225,
+          "devise": "$",
+          "unite": "bobine",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.25 mm (épaisse)",
+          "image": "",
+          "vente": 48,
+          "rachat": 30,
+          "devise": "$",
+          "unite": "petite",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.25 mm (épaisse)",
+          "image": "",
+          "vente": 480,
+          "rachat": 300,
+          "devise": "$",
+          "unite": "bobine",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.5 mm (épaisse)",
+          "image": "",
+          "vente": 96,
+          "rachat": 60,
+          "devise": "$",
+          "unite": "petite",
+          "dispo": true
+        },
+        {
+          "nom": "Ligne en nylon de 0.5 mm (épaisse)",
+          "image": "",
+          "vente": 960,
+          "rachat": 600,
+          "devise": "$",
+          "unite": "bobine",
+          "dispo": true
+        },
+        {
+          "nom": "Angler Waders",
+          "image": "",
+          "vente": 960,
+          "rachat": 600,
+          "devise": "$",
+          "unite": "",
           "dispo": true
         }
       ]
     },
     {
-      "nom": "Armes",
+      "nom": "Viande",
+      "visible": true,
       "items": [
         {
-          "nom": "Fusil de chasse",
+          "nom": "Steak d'ours",
           "image": "",
-          "vente": 5,
+          "vente": 216,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Steak de loup",
+          "image": "",
+          "vente": 173,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Steak de cheval",
+          "image": "",
+          "vente": 173,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Steak d'âne",
+          "image": "",
+          "vente": 130,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Steak de chèvre",
+          "image": "",
+          "vente": 130,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Steak de biche",
+          "image": "",
+          "vente": 43,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Poulet plumé",
+          "image": "",
+          "vente": 173,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Pilon de poulet",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Viande de poulet",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Cuisse de lapin",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Viande de lapin",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Crow Meat",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Seagull Meat",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Graisse animale",
+          "image": "",
+          "vente": 17,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Graisse animale (L)",
+          "image": "",
+          "vente": 86,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        }
+      ]
+    },
+    {
+      "nom": "Équipement",
+      "visible": true,
+      "items": [
+        {
+          "nom": "Distributeur d'appâts",
+          "image": "",
+          "vente": 1280,
+          "rachat": 800,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Boussole avancée",
+          "image": "",
+          "vente": 2000,
+          "rachat": 1250,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Jumelles",
+          "image": "",
+          "vente": 1600,
+          "rachat": 1000,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        }
+      ]
+    },
+    {
+      "nom": "Matériaux",
+      "visible": true,
+      "items": [
+        {
+          "nom": "Plume",
+          "image": "",
+          "vente": 4,
           "rachat": 2,
-          "devise": "or",
+          "devise": "$",
           "unite": "",
           "dispo": true
         }

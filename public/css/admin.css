@@ -189,3 +189,6 @@ textarea:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
 .cat-hidden .vis-toggle { color: var(--ko); background: rgba(168,56,28,.1); border-color: rgba(168,56,28,.45); }
 .cat-hidden .table-wrap, .cat-hidden .link-btn, .cat-hidden .cat-name { opacity: .5; }
 .cat-hidden { background: repeating-linear-gradient(135deg, var(--sand-light) 0 14px, #f3e2bf 14px 28px); }
+.hint-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; margin-bottom: 1rem; }
+.hint-row .hint { margin: 0; }
+.hint-row .link-btn { margin: 0; }

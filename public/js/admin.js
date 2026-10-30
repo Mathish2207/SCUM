@@ -303,6 +303,21 @@
     dirty = true;
   });
 
+  // Remplace les catégories par le barème de base (prix marchands -20 % / 50 %), sans toucher aux sessions
+  $("load-default").addEventListener("click", async () => {
+    if (!confirm("Remplacer tout le barème actuel par le barème de base ?\nLes sessions de chasse et le lien Discord ne changent pas.\nRien n'est enregistré tant que vous ne cliquez pas sur « Enregistrer ».")) return;
+    try {
+      const res = await fetch("/data/prix-defaut.json", { cache: "no-store" });
+      const base = await res.json();
+      cats.replaceChildren();
+      (base.categories || []).forEach(addCat);
+      dirty = true;
+      toast("Barème de base chargé. Vérifiez puis cliquez sur Enregistrer.");
+    } catch {
+      toast("Impossible de charger le barème de base.", true);
+    }
+  });
+
   $("add-session").addEventListener("click", () => {
     const s = addSession({ devise: "$", dispo: true });
     s.querySelector(".s-nom").focus();
