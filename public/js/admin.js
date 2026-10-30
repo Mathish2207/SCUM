@@ -155,9 +155,17 @@
     return row;
   }
 
+  // Catégorie masquée : grisée dans l'admin, absente du site
+  function setVisible(node, on) {
+    node.querySelector(".cat-visible").checked = on;
+    node.querySelector(".vis-toggle span").textContent = on ? "Visible" : "Masquée";
+    node.classList.toggle("cat-hidden", !on);
+  }
+
   function addCat(cat = { nom: "", items: [] }) {
     const node = tplCat.content.firstElementChild.cloneNode(true);
     node.querySelector(".cat-name").value = cat.nom || "";
+    setVisible(node, cat.visible !== false);
     const tbody = node.querySelector("tbody");
     (cat.items || []).forEach((it) => addItem(tbody, it));
     cats.append(node);
@@ -197,6 +205,7 @@
       categories: [...cats.querySelectorAll(".cat")]
         .map((c) => ({
           nom: val(c, ".cat-name"),
+          visible: c.querySelector(".cat-visible").checked,
           items: [...c.querySelectorAll("tbody tr")]
             .map((r) => ({
               nom: val(r, ".f-nom"),
@@ -228,7 +237,10 @@
   // ---------- Actions ----------
   const editor = $("editor");
   editor.addEventListener("input", () => (dirty = true));
-  editor.addEventListener("change", () => (dirty = true));
+  editor.addEventListener("change", (e) => {
+    dirty = true;
+    if (e.target.classList.contains("cat-visible")) setVisible(e.target.closest(".cat"), e.target.checked);
+  });
 
   editor.addEventListener("contextmenu", (e) => {
     const btn = e.target.closest(".img-btn");
@@ -289,6 +301,21 @@
     c.querySelector(".cat-name").focus();
     c.scrollIntoView({ behavior: "smooth", block: "center" });
     dirty = true;
+  });
+
+  // Remplace les catégories par le barème de base (prix marchands -20 % / 50 %), sans toucher aux sessions
+  $("load-default").addEventListener("click", async () => {
+    if (!confirm("Remplacer tout le barème actuel par le barème de base ?\nLes sessions de chasse et le lien Discord ne changent pas.\nRien n'est enregistré tant que vous ne cliquez pas sur « Enregistrer ».")) return;
+    try {
+      const res = await fetch("/data/prix-defaut.json", { cache: "no-store" });
+      const base = await res.json();
+      cats.replaceChildren();
+      (base.categories || []).forEach(addCat);
+      dirty = true;
+      toast("Barème de base chargé. Vérifiez puis cliquez sur Enregistrer.");
+    } catch {
+      toast("Impossible de charger le barème de base.", true);
+    }
   });
 
   $("add-session").addEventListener("click", () => {

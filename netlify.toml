@@ -1,6 +1,10 @@
 [build]
   publish = "public"
   functions = "netlify/functions"
+  # Économie de builds : Netlify ne construit QUE la production (branche main).
+  # Les pushs sur dev (et les aperçus de pull request) sont annulés avant le build.
+  # Règle Netlify : la commande "ignore" qui renvoie 0 = build annulé.
+  ignore = 'test "$CONTEXT" != "production"'
 
 [functions]
   node_bundler = "esbuild"

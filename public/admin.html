@@ -59,7 +59,10 @@
     </nav>
 
     <div id="tab-bareme" class="tab-panel">
-      <p class="hint">Laissez « Rachat » vide si vous ne rachetez pas l'article. Cliquez sur la vignette pour ajouter l'image de l'article.</p>
+      <div class="hint-row">
+        <p class="hint">Laissez « Rachat » vide si vous ne rachetez pas l'article. Cliquez sur la vignette pour ajouter l'image de l'article.</p>
+        <button type="button" class="link-btn" id="load-default">Charger le barème de base (prix marchands)</button>
+      </div>
       <div id="cats"></div>
     </div>
 
@@ -77,6 +80,9 @@
     <section class="cat panel">
       <div class="cat-head">
         <input class="cat-name" type="text" maxlength="60" placeholder="Nom de la catégorie" aria-label="Nom de la catégorie">
+        <label class="vis-toggle" title="Décocher pour masquer toute la catégorie sur le site">
+          <input type="checkbox" class="cat-visible" checked> <span>Visible</span>
+        </label>
         <div class="cat-tools">
           <button type="button" class="icon-btn" data-act="cat-up" title="Monter">↑</button>
           <button type="button" class="icon-btn" data-act="cat-down" title="Descendre">↓</button>

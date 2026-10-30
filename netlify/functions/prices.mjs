@@ -16,6 +16,7 @@ const devise = (v) => (v === "or" ? "or" : "$");
 const image = (v) => {
   const s = str(v, 500);
   if (/^\/api\/img\/[a-z0-9-]+\.(png|jpg|webp|gif)$/.test(s)) return s;
+  if (/^\/img\/items\/[a-z0-9-]+\.webp$/.test(s)) return s; // icônes fournies avec le site
   if (/^https:\/\/[^\s"'<>]+$/.test(s)) return s;
   return "";
 };
@@ -38,6 +39,7 @@ function sanitize(input) {
       if (items.length > 300) throw new Error("Trop d'articles dans une catégorie (300 max).");
       return {
         nom: str(c?.nom, 60),
+        visible: c?.visible !== false,
         items: items
           .map((it) => ({
             nom: str(it?.nom, 80),

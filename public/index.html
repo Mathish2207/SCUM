@@ -40,15 +40,32 @@
     <div class="prices-head">
       <h2>Le Barème</h2>
       <p>On vend, et on rachète votre butin. Paiement en jeu, à la hutte.</p>
+      <div class="deal">
+        <span>Vente <strong>20 % moins chère</strong> que les marchands</span>
+        <span>Rachat <strong>20 % plus cher</strong> que les marchands</span>
+      </div>
       <p class="updated" id="updated" hidden></p>
     </div>
     <div class="legend" aria-hidden="true">
-      <span><i class="dot dot-sell"></i>Vente : ce que vous payez</span>
-      <span><i class="dot dot-buy"></i>Rachat : ce qu'on vous donne</span>
+      <span><i class="dot dot-sell"></i>Vente (rouge) : ce que vous payez</span>
+      <span><i class="dot dot-buy"></i>Rachat (vert) : ce qu’on vous donne</span>
     </div>
-    <div class="catalog" id="catalog" aria-live="polite">
+    <div class="toolbar" id="toolbar" hidden>
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" placeholder="Rechercher un article…" autocomplete="off" aria-label="Rechercher un article">
+        <kbd aria-hidden="true">/</kbd>
+      </div>
+      <div class="filters">
+        <div class="chips" id="chips" role="group" aria-label="Catégories"></div>
+        <label class="toggle"><input type="checkbox" id="only-dispo"> Disponibles uniquement</label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+    </div>
+    <div class="catalog" id="catalog">
       <p class="loading">Chargement des prix…</p>
     </div>
+    <p class="empty no-result" id="no-result" hidden>Aucun article ne correspond. <button type="button" class="link-reset" id="reset">Tout afficher</button></p>
     <div class="order" data-order hidden>
       <div class="order-text">
         <strong>Commander</strong>
