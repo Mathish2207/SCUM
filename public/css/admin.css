@@ -46,7 +46,7 @@ body.admin::before {
 .login label { text-align: left; font-weight: 600; }
 .error { margin: 0; min-height: 1.2em; color: var(--ko); font-weight: 600; }
 
-input[type="text"], input[type="password"], input[type="number"], select {
+input[type="text"], input[type="password"], input[type="number"], input[type="url"], select {
   width: 100%;
   font: inherit;
   padding: .55rem .7rem;
@@ -177,3 +177,15 @@ textarea:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
 .order-settings { margin-bottom: 1.5rem; }
 .settings-title { margin: 0 0 .2rem; font: 400 1.3rem var(--font-title); color: var(--rust); }
 .s-grid.two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* ---------- Catégorie visible / masquée ---------- */
+.vis-toggle {
+  display: inline-flex; align-items: center; gap: .4rem; flex-shrink: 0;
+  padding: .45rem .8rem; border-radius: 99px; cursor: pointer;
+  font: 700 .85rem var(--font-text); color: var(--ok);
+  background: rgba(95,122,46,.12); border: 1px solid rgba(95,122,46,.45);
+}
+.vis-toggle input { width: 1rem; height: 1rem; accent-color: var(--ok); }
+.cat-hidden .vis-toggle { color: var(--ko); background: rgba(168,56,28,.1); border-color: rgba(168,56,28,.45); }
+.cat-hidden .table-wrap, .cat-hidden .link-btn, .cat-hidden .cat-name { opacity: .5; }
+.cat-hidden { background: repeating-linear-gradient(135deg, var(--sand-light) 0 14px, #f3e2bf 14px 28px); }

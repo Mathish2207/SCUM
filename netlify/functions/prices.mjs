@@ -38,6 +38,7 @@ function sanitize(input) {
       if (items.length > 300) throw new Error("Trop d'articles dans une catégorie (300 max).");
       return {
         nom: str(c?.nom, 60),
+        visible: c?.visible !== false,
         items: items
           .map((it) => ({
             nom: str(it?.nom, 80),

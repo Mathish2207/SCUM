@@ -22,7 +22,8 @@ Chaque `git push` sur `main` redéploie le site automatiquement.
 Dans l'admin, onglet **Barème** :
 - prix de **vente** et de **rachat** (laisser « Rachat » vide si vous ne rachetez pas l'article), devise ($ ou or), unité ;
 - **image** de l'article : cliquez sur la vignette pour envoyer un fichier (PNG, JPG, WEBP, GIF ; réduit automatiquement), ou « lien » pour coller une adresse https ; clic droit sur la vignette pour la retirer ;
-- disponible / en rupture, ajout, suppression et ordre des articles et des catégories.
+- disponible / en rupture, ajout, suppression et ordre des articles et des catégories ;
+- **Visible / Masquée** sur chaque catégorie : une catégorie masquée disparaît du site (et des filtres) sans être supprimée.
 
 En haut de l’admin, **Commandes & réservations** : lien du post « Commande » du forum Discord et texte affiché sous le barème et sous les sessions (avec un bouton vers ce post).
 

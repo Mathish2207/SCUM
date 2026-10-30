@@ -40,7 +40,8 @@
   }
 
   // ---------- Barème ----------
-  const cats = (data.categories || []).filter((c) => (c.items || []).length);
+  // les catégories masquées dans l'admin ne s'affichent pas
+  const cats = (data.categories || []).filter((c) => c.visible !== false && (c.items || []).length);
   if (!cats.length) {
     catalog.replaceChildren(el("p", "empty", "Le barème arrive bientôt. Repassez à la hutte !"));
   } else {
