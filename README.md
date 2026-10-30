@@ -1,0 +1,52 @@
+# La Hutte Enchanté
+
+Site du magasin **La Hutte Enchanté** sur le jeu SCUM : une page d'accueil plein écran, le barème des prix, et un espace admin pour modifier les prix.
+
+Le site est hébergé sur **Netlify**. Les prix sont stockés avec **Netlify Blobs**, il n'y a pas de base de données à installer.
+
+## Mise en ligne sur Netlify
+
+1. Sur Netlify, faites **Add new site → Import an existing project → GitHub**, puis choisissez ce dépôt.
+   La configuration est déjà dans `netlify.toml`, il n'y a rien à remplir.
+2. Allez dans **Site configuration → Environment variables** et ajoutez :
+   - `ADMIN_PASSWORD` : le mot de passe de l'admin (choisissez-en un solide).
+3. Relancez un déploiement (**Deploys → Trigger deploy**) pour que le mot de passe soit pris en compte.
+
+Chaque `git push` sur `main` redéploie le site automatiquement.
+
+## Utilisation
+
+- **Site public :** `https://votre-site.netlify.app/`
+- **Admin :** `https://votre-site.netlify.app/admin`
+
+Dans l'admin, vous pouvez :
+- modifier le nom, le prix, la devise ($ ou or) et l'unité de chaque article ;
+- marquer un article disponible ou en rupture ;
+- ajouter, supprimer ou réordonner les articles et les catégories.
+
+Le bouton **Enregistrer** met le site à jour immédiatement.
+
+Tant que rien n'a été enregistré depuis l'admin, le site affiche les exemples du fichier `public/data/prix-defaut.json`.
+
+## Organisation des fichiers
+
+```
+public/                 le site (HTML, CSS, JS, images)
+  index.html            accueil + barème
+  admin.html            espace admin
+  data/prix-defaut.json prix de départ
+netlify/functions/      API côté serveur
+  prices.mjs            GET /api/prices (lecture) · PUT /api/prices (écriture, mot de passe requis)
+  login.mjs             POST /api/login (vérification du mot de passe)
+netlify/lib/auth.mjs    contrôle du mot de passe + limite des essais
+netlify.toml            configuration Netlify
+```
+
+## Tester en local (optionnel)
+
+```bash
+npm install
+npx netlify-cli dev
+```
+
+Puis ouvrez http://localhost:8888. Pour l'admin en local, définissez `ADMIN_PASSWORD` dans un fichier `.env`.

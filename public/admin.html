@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin — La Hutte Enchanté</title>
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+
+  <header class="admin-bar">
+    <a href="/" class="brand"><img src="/img/ours-256.png" alt="" width="44" height="44"> La Hutte <span>Admin</span></a>
+    <button class="link-btn" id="logout" hidden>Déconnexion</button>
+  </header>
+
+  <!-- Connexion -->
+  <section class="login" id="login">
+    <form id="login-form" class="panel">
+      <img src="/img/ours-256.png" alt="" class="login-bear" width="140" height="140">
+      <h1>Espace gérant</h1>
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" autocomplete="current-password" required>
+      <button class="btn" type="submit">Entrer dans la hutte</button>
+      <p class="error" id="login-error" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- Éditeur -->
+  <main class="editor" id="editor" hidden>
+    <div class="editor-head">
+      <div>
+        <h1>Modifier le barème</h1>
+        <p class="muted">Les modifications sont visibles sur le site dès que vous enregistrez.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost" id="add-cat" type="button">+ Catégorie</button>
+        <button class="btn" id="save" type="button">Enregistrer</button>
+      </div>
+    </div>
+
+    <div id="cats"></div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Modèles -->
+  <template id="tpl-cat">
+    <section class="cat panel">
+      <div class="cat-head">
+        <input class="cat-name" type="text" maxlength="60" placeholder="Nom de la catégorie" aria-label="Nom de la catégorie">
+        <div class="cat-tools">
+          <button type="button" class="icon-btn" data-act="cat-up" title="Monter">↑</button>
+          <button type="button" class="icon-btn" data-act="cat-down" title="Descendre">↓</button>
+          <button type="button" class="icon-btn danger" data-act="cat-del" title="Supprimer la catégorie">✕</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Article</th><th>Prix</th><th>Devise</th><th>Unité</th><th>Dispo</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button type="button" class="link-btn" data-act="item-add">+ Ajouter un article</button>
+    </section>
+  </template>
+
+  <template id="tpl-item">
+    <tr>
+      <td><input class="f-nom" type="text" maxlength="80" placeholder="Nom de l'article" aria-label="Article"></td>
+      <td><input class="f-prix" type="number" min="0" step="1" inputmode="numeric" aria-label="Prix"></td>
+      <td>
+        <select class="f-devise" aria-label="Devise">
+          <option value="$">$</option>
+          <option value="or">Or</option>
+        </select>
+      </td>
+      <td><input class="f-unite" type="text" maxlength="30" placeholder="ex : pièce" aria-label="Unité"></td>
+      <td class="center"><input class="f-dispo" type="checkbox" aria-label="Disponible"></td>
+      <td class="row-tools">
+        <button type="button" class="icon-btn" data-act="item-up" title="Monter">↑</button>
+        <button type="button" class="icon-btn" data-act="item-down" title="Descendre">↓</button>
+        <button type="button" class="icon-btn danger" data-act="item-del" title="Supprimer">✕</button>
+      </td>
+    </tr>
+  </template>
+
+  <script src="/js/prices-common.js" defer></script>
+  <script src="/js/admin.js" defer></script>
+</body>
+</html>

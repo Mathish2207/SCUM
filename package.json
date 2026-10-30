@@ -1,0 +1,13 @@
+{
+  "name": "la-hutte-enchante",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site du magasin SCUM La Hutte Enchanté (Netlify + Netlify Blobs)",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

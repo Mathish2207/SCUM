@@ -1,0 +1,27 @@
+{
+  "maj": null,
+  "categories": [
+    {
+      "nom": "Pêche",
+      "items": [
+        { "nom": "Poisson frais", "prix": 150, "devise": "$", "unite": "pièce", "dispo": true },
+        { "nom": "Canne à pêche", "prix": 800, "devise": "$", "unite": "", "dispo": true },
+        { "nom": "Hameçons", "prix": 50, "devise": "$", "unite": "lot de 5", "dispo": true }
+      ]
+    },
+    {
+      "nom": "Chasse",
+      "items": [
+        { "nom": "Viande d'ours", "prix": 400, "devise": "$", "unite": "pièce", "dispo": true },
+        { "nom": "Peau d'ours", "prix": 2, "devise": "or", "unite": "", "dispo": false },
+        { "nom": "Cartouches 12 gauge", "prix": 300, "devise": "$", "unite": "boîte", "dispo": true }
+      ]
+    },
+    {
+      "nom": "Armes",
+      "items": [
+        { "nom": "Fusil de chasse", "prix": 5, "devise": "or", "unite": "", "dispo": true }
+      ]
+    }
+  ]
+}

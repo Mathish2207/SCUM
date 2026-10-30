@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Hutte Enchanté — Comptoir SCUM</title>
+  <meta name="description" content="La Hutte Enchanté : comptoir de chasse et de pêche sur SCUM. Consultez nos prix.">
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="/img/hutte-960.webp 960w, /img/hutte-1600.webp 1600w, /img/hutte-2560.webp 2560w" imagesizes="100vw">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- ===== ACCUEIL ===== -->
+  <header class="hero" id="accueil">
+    <picture class="hero-bg">
+      <source type="image/webp" srcset="/img/hutte-960.webp 960w, /img/hutte-1600.webp 1600w, /img/hutte-2560.webp 2560w" sizes="100vw">
+      <img src="/img/hutte-1600.jpg" alt="Un grizzly à la crinière épaisse tient une truite ferrée dans la gueule, un fusil de chasse derrière lui, dans un marécage au coucher du soleil" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="shade" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="kicker">Comptoir de chasse &amp; pêche — SCUM</p>
+      <h1 class="title">La Hutte <span>Enchanté</span></h1>
+      <a href="#prix" class="btn">Voir nos prix</a>
+    </div>
+
+    <a href="#prix" class="scroll-cue" aria-label="Descendre vers les prix"><span></span></a>
+  </header>
+
+  <!-- ===== PRIX ===== -->
+  <main id="prix" class="prices">
+    <div class="prices-head">
+      <h2>Le Barème</h2>
+      <p>Nos prix du moment. Payable en jeu, à la hutte.</p>
+      <p class="updated" id="updated" hidden></p>
+    </div>
+
+    <div class="catalog" id="catalog" aria-live="polite">
+      <p class="loading">Chargement des prix…</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <img src="/img/ours-256.png" alt="" width="48" height="48">
+    <p>La Hutte Enchanté — on chasse, on pêche, on vend.</p>
+  </footer>
+
+  <script src="/js/prices-common.js" defer></script>
+  <script src="/js/site.js" defer></script>
+</body>
+</html>

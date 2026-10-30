@@ -1,0 +1,223 @@
+/* ==========================================================
+   La Hutte Enchanté — couleurs de savane, photo marécage
+   ========================================================== */
+:root {
+  --sand: #f3dcaa;
+  --sand-light: #faecc9;
+  --ochre: #e0a040;
+  --gold: #f2c25c;
+  --sunset: #c8562a;
+  --rust: #9a3c17;
+  --earth: #6b3f1f;
+  --bark: #3d2414;
+  --night: #24150c;
+  --acacia: #6f7d3a;
+  --ok: #5f7a2e;
+  --ko: #a8381c;
+
+  --font-title: "Rye", "Georgia", serif;
+  --font-text: "Bitter", "Georgia", serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  color: var(--bark);
+  background: var(--night);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+
+/* ---------- Bouton ---------- */
+.btn {
+  display: inline-block;
+  padding: .85rem 2rem;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  letter-spacing: .04em;
+  color: #fbe9c6;
+  background: linear-gradient(180deg, #b5532a, #7e3216);
+  border: 1px solid rgba(255,220,170,.35);
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(20,10,5,.5), inset 0 1px 0 rgba(255,230,190,.3);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, background .2s;
+}
+.btn:hover { background: linear-gradient(180deg, #c45f30, #8a3818); transform: translateY(-1px); }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* ==========================================================
+   ACCUEIL
+   ========================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-bg { position: absolute; inset: 0; z-index: -2; }
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  animation: drift 40s ease-in-out infinite alternate;
+}
+@keyframes drift { from { transform: scale(1); } to { transform: scale(1.05); } }
+/* assombrit le haut et le bas pour lire le texte, sans toucher à l'ours */
+.shade {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(20,10,5,.55) 0%, rgba(20,10,5,0) 18%, rgba(20,10,5,0) 52%, rgba(20,10,5,.55) 75%, rgba(20,10,5,.9) 100%);
+}
+
+.hero-content {
+  text-align: center;
+  padding: 2rem 1rem 6.5rem;
+  display: flex; flex-direction: column; align-items: center;
+}
+.kicker {
+  position: absolute; top: 1.6rem; left: 0; right: 0;
+  margin: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font-size: clamp(.7rem, 1.6vw, .95rem);
+  color: #f8e3b8;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8);
+}
+.title {
+  margin: 0 0 1.2rem;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: .02em;
+  background: linear-gradient(180deg, #fff1cf 0%, #f2c46e 45%, #b8742c 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 1px rgba(20,10,5,.9)) drop-shadow(0 8px 18px rgba(20,10,5,.6));
+}
+.title span { color: transparent; }
+
+.scroll-cue {
+  position: absolute; bottom: 1.4rem; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 48px;
+  border: 3px solid var(--sand-light);
+  border-radius: 16px;
+}
+.scroll-cue span {
+  position: absolute; left: 50%; top: 8px;
+  width: 6px; height: 10px; margin-left: -3px;
+  border-radius: 3px; background: var(--sand-light);
+  animation: wheel 1.8s ease-in-out infinite;
+}
+@keyframes wheel { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(16px); } }
+
+/* ==========================================================
+   PRIX
+   ========================================================== */
+.prices {
+  position: relative;
+  padding: 5rem 1.25rem 6rem;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255,255,255,.35), transparent 40%),
+    repeating-linear-gradient(90deg, rgba(107,63,31,.035) 0 2px, transparent 2px 9px),
+    var(--sand);
+  border-top: 1px solid #b8742c;
+  box-shadow: inset 0 24px 40px -24px rgba(36,21,12,.6);
+}
+.prices-head { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+.prices-head h2 {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  color: var(--rust);
+}
+.prices-head p { margin: .6rem 0 0; font-size: 1.05rem; }
+.updated { font-size: .85rem !important; opacity: .7; }
+
+.catalog {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: start;
+}
+.loading, .empty { grid-column: 1 / -1; text-align: center; font-style: italic; }
+
+.card {
+  background: var(--sand-light);
+  border: 1px solid rgba(61,36,20,.35);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(61,36,20,.2), 0 16px 34px rgba(61,36,20,.25);
+  overflow: hidden;
+}
+.card h3 {
+  margin: 0;
+  padding: .8rem 1.1rem;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 1.45rem;
+  letter-spacing: .02em;
+  color: var(--sand-light);
+  background: linear-gradient(180deg, #5a3218, #3d2010);
+  border-bottom: 2px solid #b8742c;
+  color: #f2c46e;
+}
+.card ul { list-style: none; margin: 0; padding: .4rem 1.1rem 1rem; }
+.item {
+  display: flex; align-items: baseline; gap: .5rem;
+  padding: .55rem 0;
+  border-bottom: 1px dashed rgba(107,63,31,.3);
+}
+.item:last-child { border-bottom: 0; }
+.item-name { font-weight: 600; }
+.item-unit { font-size: .8rem; opacity: .7; margin-left: .25rem; font-weight: 400; }
+.item-dots { flex: 1; border-bottom: 2px dotted rgba(61,36,20,.35); transform: translateY(-4px); min-width: 1rem; }
+.item-price { font-weight: 800; white-space: nowrap; color: var(--rust); }
+.item.out .item-name, .item.out .item-price { text-decoration: line-through; opacity: .55; }
+.badge {
+  font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+  padding: .12rem .45rem; border-radius: 4px;
+  color: #fff; background: var(--ko);
+  white-space: nowrap;
+}
+
+/* ---------- Pied de page ---------- */
+.footer {
+  display: flex; align-items: center; justify-content: center; gap: .8rem;
+  padding: 1.5rem 1rem;
+  color: var(--sand);
+  background: var(--night);
+  font-size: .9rem;
+}
+.footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* téléphone en portrait : on montre une plus grande partie de la scène en haut, le titre en dessous */
+@media (max-aspect-ratio: 4/5) {
+  .hero { background: #160b05; }
+  .hero-bg { bottom: auto; height: 62svh; top: 7svh; }
+  .hero-bg img { object-position: 50% 40%; animation: none; }
+  .shade {
+    background:
+      linear-gradient(180deg, #160b05 0%, rgba(22,11,5,0) 12svh, rgba(22,11,5,0) 52svh, #160b05 69svh, #160b05 100%);
+  }
+  .hero-content { padding-bottom: 6rem; }
+}
+
+.footer img { border-radius: 50%; border: 2px solid #b8742c; }
