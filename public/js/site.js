@@ -64,7 +64,7 @@
           info.append(meta);
         }
         const prices = el("p", "tile-prices");
-        prices.append(el("span", "sell", price(vente, it.devise)), el("span", "buy", it.rachat == null ? "—" : price(it.rachat, it.devise)));
+        prices.append(el("span", "sell", vente == null ? "Sur demande" : price(vente, it.devise)), el("span", "buy", it.rachat == null ? "—" : price(it.rachat, it.devise)));
         info.append(prices);
         tile.append(thumb(it), info);
         frag.append(tile);
@@ -147,17 +147,17 @@
     apply();
   }
 
-  // ---------- Sessions ----------
-  const sessions = (data.sessions || []).filter((s) => s.nom);
-  if (!sessions.length) {
-    sessionList.replaceChildren(el("p", "empty", "Les prochaines sessions seront annoncées bientôt."));
-  } else {
+  // ---------- Cartes de session (chasse et pêche) ----------
+  function renderSessions(box, list, emptyText) {
+    const items = (list || []).filter((x) => x.nom);
+    if (!items.length) { box.replaceChildren(el("p", "empty", emptyText)); return; }
     const frag = document.createDocumentFragment();
-    for (const s of sessions) {
-      const card = el("article", "session" + (s.dispo === false ? " full" : ""));
+    for (const s of items) {
+      const off = s.dispo === false;
+      const card = el("article", "session" + (off ? " full" : ""));
       const top = el("div", "session-top");
       if (s.niveau) top.append(el("span", "level", s.niveau));
-      if (s.dispo === false) top.append(el("span", "badge", "Complet"));
+      top.append(el("span", "avail " + (off ? "no" : "yes"), off ? "Non disponible" : "Disponible"));
       card.append(top, el("h3", null, s.nom));
       if (s.description) card.append(el("p", "session-desc", s.description));
       const meta = el("ul", "session-meta");
@@ -167,8 +167,62 @@
       card.append(el("p", "session-price", s.prix == null ? "Prix sur demande" : price(s.prix, s.devise)));
       frag.append(card);
     }
-    sessionList.replaceChildren(frag);
+    box.replaceChildren(frag);
   }
+  renderSessions(sessionList, data.sessions, "Les prochaines sessions de chasse seront annoncées bientôt.");
+  renderSessions(document.getElementById("peche-list"), data.peche?.sessions, "Les prochaines parties de pêche seront annoncées bientôt.");
+
+  // ---------- Zones de pêche ----------
+  const zones = (data.peche?.zones || []).filter((z) => z.nom && z.visible !== false);
+  if (zones.length) {
+    const box = document.getElementById("zones");
+    for (const z of zones) {
+      const card = el("article", "zone");
+      card.append(el("h4", null, z.nom));
+      if (z.description) card.append(el("p", "zone-desc", z.description));
+      const fish = String(z.poissons || "").split(/[,;\n]+/).map((x) => x.trim()).filter(Boolean);
+      if (fish.length) {
+        const ul = el("ul", "fish");
+        fish.forEach((f) => ul.append(el("li", null, f)));
+        card.append(ul);
+      }
+      box.append(card);
+    }
+    document.getElementById("zones-wrap").hidden = false;
+  }
+
+  // ---------- Affiches du magasin ----------
+  const affBox = document.getElementById("affiches");
+  for (const a of (data.affiches || []).filter((x) => x.titre && x.visible !== false)) {
+    const card = el("aside", "affiche");
+    const txt = el("div", "affiche-text");
+    txt.append(el("p", "affiche-kicker", "Avis de la hutte"), el("h3", null, a.titre));
+    if (a.texte) txt.append(el("p", "affiche-desc", a.texte));
+    card.append(txt);
+    if (a.prix != null) {
+      const p = el("p", "affiche-price", price(a.prix, a.devise));
+      if (a.unite) p.append(el("span", null, "/ " + a.unite));
+      card.append(p);
+    }
+    affBox.append(card);
+  }
+
+  // ---------- Sections masquées (aperçu réservé à l'admin) ----------
+  let apercu = false;
+  try { apercu = new URLSearchParams(location.search).has("apercu") && localStorage.getItem("hutte-apercu") === "1"; } catch (_) {}
+  const sec = data.sections || {};
+  document.querySelectorAll("[data-section]").forEach((node) => {
+    if (sec[node.dataset.section] !== false) return;
+    if (apercu) {
+      node.classList.add("preview-hidden");
+      node.prepend(el("p", "preview-banner", "Aperçu admin : cette section est masquée pour les visiteurs"));
+    } else {
+      node.hidden = true;
+    }
+  });
+  document.querySelectorAll("[data-needs]").forEach((a) => { if (sec[a.dataset.needs] === false && !apercu) a.hidden = true; });
+  if (apercu) document.body.prepend(el("div", "preview-top", "Mode aperçu admin : les sections masquées sont visibles (hachurées)"));
+
   // ---------- Commandes / réservations (forum Discord) ----------
   const text = data.commande?.texte || data.reservation || "";
   const link = data.commande?.discord || "";

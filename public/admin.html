@@ -56,9 +56,17 @@
     <nav class="tabs" role="tablist">
       <button type="button" class="tab active" data-tab="tab-bareme" role="tab">Barème</button>
       <button type="button" class="tab" data-tab="tab-sessions" role="tab">Sessions de chasse</button>
+      <button type="button" class="tab" data-tab="tab-peche" role="tab">Pêche</button>
+      <button type="button" class="tab" data-tab="tab-affichage" role="tab">Affichage du site</button>
     </nav>
 
     <div id="tab-bareme" class="tab-panel">
+      <section class="panel cat">
+        <h2 class="settings-title">Affiches du magasin</h2>
+        <p class="hint">Annonces affichées en haut du barème (ex : rachat de têtes d'animaux).</p>
+        <div id="affiches"></div>
+        <button type="button" class="link-btn" id="add-affiche">+ Ajouter une affiche</button>
+      </section>
       <div class="hint-row">
         <p class="hint">Laissez « Rachat » vide si vous ne rachetez pas l'article. Cliquez sur la vignette pour ajouter l'image de l'article.</p>
         <button type="button" class="link-btn" id="load-default">Charger le barème de base (prix marchands)</button>
@@ -67,8 +75,36 @@
     </div>
 
     <div id="tab-sessions" class="tab-panel" hidden>
+      <p class="hint">Décochez « Disponible » pour afficher « Non disponible » sur la session.</p>
       <div id="sessions"></div>
-      <button class="btn btn-ghost" id="add-session" type="button">+ Ajouter une session</button>
+      <button class="btn btn-ghost" id="add-session" type="button">+ Ajouter une session de chasse</button>
+    </div>
+
+    <div id="tab-peche" class="tab-panel" hidden>
+      <h2 class="tab-sub">Parties de pêche</h2>
+      <div id="peche-sessions"></div>
+      <button class="btn btn-ghost" id="add-peche" type="button">+ Ajouter une partie de pêche</button>
+      <h2 class="tab-sub">Zones de pêche</h2>
+      <p class="hint">Une zone par endroit. Séparez les poissons par des virgules.</p>
+      <div id="zones"></div>
+      <button class="btn btn-ghost" id="add-zone" type="button">+ Ajouter une zone</button>
+    </div>
+
+    <div id="tab-affichage" class="tab-panel" hidden>
+      <section class="panel cat">
+        <h2 class="settings-title">Sections visibles sur le site</h2>
+        <p class="hint">Décochez pour masquer une section entière aux visiteurs. Rien n'est supprimé.</p>
+        <div class="sections-grid">
+          <label class="check-card"><input type="checkbox" id="sec-bareme"> <span><strong>Le Barème</strong><small>catalogue, affiches, recherche</small></span></label>
+          <label class="check-card"><input type="checkbox" id="sec-chasse"> <span><strong>Sessions de chasse</strong></span></label>
+          <label class="check-card"><input type="checkbox" id="sec-peche"> <span><strong>Parties de pêche</strong><small>sessions et zones</small></span></label>
+          <label class="check-card"><input type="checkbox" id="sec-carte"> <span><strong>Nous trouver</strong><small>carte du secteur B2</small></span></label>
+        </div>
+        <div class="preview-row">
+          <a class="btn btn-ghost" id="preview" href="/?apercu=1" target="_blank" rel="noopener">Aperçu admin du site</a>
+          <p class="hint">L'aperçu montre aussi les sections masquées (hachurées). Il affiche la version <strong>enregistrée</strong> : enregistrez d'abord.</p>
+        </div>
+      </section>
     </div>
   </main>
   <input type="file" id="file-pick" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
@@ -144,8 +180,36 @@
         <label>Places<input class="s-places" type="text" maxlength="30" placeholder="1 tireur"></label>
         <label>Prix<input class="s-prix" type="number" min="0" step="1" placeholder="—"></label>
         <label>Devise<select class="s-devise"><option value="$">$</option><option value="or">Or</option></select></label>
-        <label class="check"><input class="s-dispo" type="checkbox"> Places dispo</label>
+        <label class="check"><input class="s-dispo" type="checkbox"> Disponible</label>
       </div>
+    </section>
+  </template>
+
+  <template id="tpl-affiche">
+    <div class="affiche-edit">
+      <input class="a-titre" type="text" maxlength="80" placeholder="Titre (ex : Rachat de têtes d'animaux)" aria-label="Titre">
+      <input class="a-texte" type="text" maxlength="300" placeholder="Texte (ex : minimum 1 % de durabilité)" aria-label="Texte">
+      <input class="a-prix" type="number" min="0" step="1" placeholder="Prix" aria-label="Prix">
+      <select class="a-devise" aria-label="Devise"><option value="$">$</option><option value="or">Or</option></select>
+      <input class="a-unite" type="text" maxlength="30" placeholder="unité" aria-label="Unité">
+      <label class="check"><input class="a-visible" type="checkbox"> Visible</label>
+      <button type="button" class="icon-btn danger" data-act="row-del" title="Supprimer">✕</button>
+    </div>
+  </template>
+
+  <template id="tpl-zone">
+    <section class="panel cat zone-edit">
+      <div class="cat-head">
+        <input class="z-nom cat-name" type="text" maxlength="80" placeholder="Nom de la zone" aria-label="Nom de la zone">
+        <label class="vis-toggle"><input type="checkbox" class="z-visible"> <span>Visible</span></label>
+        <div class="cat-tools">
+          <button type="button" class="icon-btn" data-act="s-up" title="Monter">↑</button>
+          <button type="button" class="icon-btn" data-act="s-down" title="Descendre">↓</button>
+          <button type="button" class="icon-btn danger" data-act="s-del" title="Supprimer la zone">✕</button>
+        </div>
+      </div>
+      <textarea class="z-desc" maxlength="400" rows="2" placeholder="Description : où c'est, comment y aller…" aria-label="Description"></textarea>
+      <input class="z-poissons" type="text" maxlength="300" placeholder="Poissons : Truite, Perche, Carpe…" aria-label="Poissons">
     </section>
   </template>
 
