@@ -1,7 +1,7 @@
 import { getStore } from "@netlify/blobs";
 import { requireAdmin, json } from "../lib/auth.mjs";
 
-// Le catalogue (articles vente/rachat + sessions de chasse) est stocké dans Netlify Blobs.
+// Tout le contenu modifiable (barème, affiches, chasse, pêche, sections visibles) est stocké dans Netlify Blobs.
 const STORE = "la-hutte";
 const KEY = "prix";
 
@@ -26,6 +26,22 @@ const discord = (v) => {
   const s = str(v, 300);
   return /^https:\/\/(www\.)?(discord\.com|discord\.gg|discordapp\.com)\/[^\s"'<>]*$/.test(s) ? s : "";
 };
+
+const list = (v, max, what) => {
+  const a = Array.isArray(v) ? v : [];
+  if (a.length > max) throw new Error(`Trop de ${what} (${max} max).`);
+  return a;
+};
+const cleanSession = (s) => ({
+  nom: str(s?.nom, 80),
+  description: str(s?.description, 600),
+  niveau: str(s?.niveau, 30),
+  duree: str(s?.duree, 40),
+  places: str(s?.places, 30),
+  prix: money(s?.prix),
+  devise: devise(s?.devise),
+  dispo: s?.dispo !== false,
+});
 
 function sanitize(input) {
   if (!input || !Array.isArray(input.categories)) throw new Error("Format invalide.");
@@ -62,18 +78,36 @@ function sanitize(input) {
       discord: discord(input.commande?.discord),
     },
     categories,
-    sessions: sessions
-      .map((s) => ({
-        nom: str(s?.nom, 80),
-        description: str(s?.description, 600),
-        niveau: str(s?.niveau, 30),
-        duree: str(s?.duree, 40),
-        places: str(s?.places, 30),
-        prix: money(s?.prix),
-        devise: devise(s?.devise),
-        dispo: s?.dispo !== false,
+    sessions: sessions.map(cleanSession).filter((x) => x.nom),
+    // Sections du site qu'on peut masquer (aperçu possible depuis l'admin)
+    sections: {
+      bareme: input.sections?.bareme !== false,
+      chasse: input.sections?.chasse !== false,
+      peche: input.sections?.peche !== false,
+      carte: input.sections?.carte !== false,
+    },
+    // Affiches du magasin (ex : rachat de têtes d'animaux)
+    affiches: list(input.affiches, 20, "affiches")
+      .map((x) => ({
+        titre: str(x?.titre, 80),
+        texte: str(x?.texte, 300),
+        prix: money(x?.prix),
+        devise: devise(x?.devise),
+        unite: str(x?.unite, 30),
+        visible: x?.visible !== false,
       }))
-      .filter((s) => s.nom),
+      .filter((x) => x.titre),
+    peche: {
+      sessions: list(input.peche?.sessions, 50, "parties de pêche").map(cleanSession).filter((x) => x.nom),
+      zones: list(input.peche?.zones, 50, "zones de pêche")
+        .map((z) => ({
+          nom: str(z?.nom, 80),
+          description: str(z?.description, 400),
+          poissons: str(z?.poissons, 300),
+          visible: z?.visible !== false,
+        }))
+        .filter((z) => z.nom),
+    },
   };
 }
 
@@ -91,7 +125,7 @@ export default async (req, context) => {
     if (denied) return denied;
 
     const raw = await req.text();
-    if (raw.length > 500_000) return json({ error: "Données trop volumineuses." }, 413);
+    if (raw.length > 800_000) return json({ error: "Données trop volumineuses." }, 413);
 
     let clean;
     try {

@@ -8,7 +8,9 @@
   let dirty = false;
 
   const tplCat = $("tpl-cat"), tplItem = $("tpl-item"), tplSession = $("tpl-session");
-  const cats = $("cats"), sessionsBox = $("sessions");
+  const tplAffiche = $("tpl-affiche"), tplZone = $("tpl-zone");
+  const cats = $("cats"), sessionsBox = $("sessions"), pecheBox = $("peche-sessions"), zonesBox = $("zones"), affBox = $("affiches");
+  const SECTIONS = ["bareme", "chasse", "peche", "carte"];
 
   // ---------- Notification ----------
   let toastTimer;
@@ -31,6 +33,7 @@
   }
 
   async function enter() {
+    try { localStorage.setItem("hutte-apercu", "1"); } catch (_) {}
     $("login").hidden = true;
     $("editor").hidden = false;
     $("logout").hidden = false;
@@ -59,6 +62,7 @@
   $("logout").addEventListener("click", () => {
     if (dirty && !confirm("Des modifications ne sont pas enregistrées. Se déconnecter quand même ?")) return;
     sessionStorage.removeItem(KEY);
+    try { localStorage.removeItem("hutte-apercu"); } catch (_) {}
     location.reload();
   });
 
@@ -172,7 +176,7 @@
     return node;
   }
 
-  function addSession(s = {}) {
+  function addSession(s = {}, box = sessionsBox) {
     const node = tplSession.content.firstElementChild.cloneNode(true);
     node.querySelector(".s-nom").value = s.nom || "";
     node.querySelector(".s-desc").value = s.description || "";
@@ -182,15 +186,50 @@
     node.querySelector(".s-prix").value = num(s.prix);
     node.querySelector(".s-devise").value = s.devise === "or" ? "or" : "$";
     node.querySelector(".s-dispo").checked = s.dispo !== false;
-    sessionsBox.append(node);
+    box.append(node);
     return node;
+  }
+
+  function addAffiche(a = {}) {
+    const n = tplAffiche.content.firstElementChild.cloneNode(true);
+    n.querySelector(".a-titre").value = a.titre || "";
+    n.querySelector(".a-texte").value = a.texte || "";
+    n.querySelector(".a-prix").value = num(a.prix);
+    n.querySelector(".a-devise").value = a.devise === "or" ? "or" : "$";
+    n.querySelector(".a-unite").value = a.unite || "";
+    n.querySelector(".a-visible").checked = a.visible !== false;
+    affBox.append(n);
+    return n;
+  }
+
+  function setZoneVisible(n, on) {
+    n.querySelector(".z-visible").checked = on;
+    n.querySelector(".zone-edit .vis-toggle span, .vis-toggle span").textContent = on ? "Visible" : "Masquée";
+    n.classList.toggle("cat-hidden", !on);
+  }
+
+  function addZone(z = {}) {
+    const n = tplZone.content.firstElementChild.cloneNode(true);
+    n.querySelector(".z-nom").value = z.nom || "";
+    n.querySelector(".z-desc").value = z.description || "";
+    n.querySelector(".z-poissons").value = z.poissons || "";
+    setZoneVisible(n, z.visible !== false);
+    zonesBox.append(n);
+    return n;
   }
 
   function render(data) {
     cats.replaceChildren();
+    pecheBox.replaceChildren();
+    zonesBox.replaceChildren();
+    affBox.replaceChildren();
+    (data.affiches || []).forEach(addAffiche);
+    (data.peche?.sessions || []).forEach((x) => addSession(x, pecheBox));
+    (data.peche?.zones || []).forEach(addZone);
+    SECTIONS.forEach((k) => ($("sec-" + k).checked = data.sections?.[k] !== false));
     sessionsBox.replaceChildren();
     (data.categories || []).forEach(addCat);
-    (data.sessions || []).forEach(addSession);
+    (data.sessions || []).forEach((x) => addSession(x));
     $("discord").value = data.commande?.discord || "";
     $("commande-texte").value = data.commande?.texte || data.reservation || "";
   }
@@ -198,6 +237,17 @@
   // ---------- Lecture du formulaire ----------
   const val = (root, sel) => root.querySelector(sel).value.trim();
   const optNum = (v) => (v === "" ? null : Math.max(0, Number(v) || 0));
+
+  const readSession = (n) => ({
+    nom: val(n, ".s-nom"),
+    description: val(n, ".s-desc"),
+    niveau: val(n, ".s-niveau"),
+    duree: val(n, ".s-duree"),
+    places: val(n, ".s-places"),
+    prix: optNum(val(n, ".s-prix")),
+    devise: n.querySelector(".s-devise").value,
+    dispo: n.querySelector(".s-dispo").checked,
+  });
 
   function collect() {
     return {
@@ -219,6 +269,28 @@
             .filter((it) => it.nom),
         }))
         .filter((c) => c.nom),
+      sections: Object.fromEntries(SECTIONS.map((k) => [k, $("sec-" + k).checked])),
+      affiches: [...affBox.querySelectorAll(".affiche-edit")]
+        .map((n) => ({
+          titre: val(n, ".a-titre"),
+          texte: val(n, ".a-texte"),
+          prix: optNum(val(n, ".a-prix")),
+          devise: n.querySelector(".a-devise").value,
+          unite: val(n, ".a-unite"),
+          visible: n.querySelector(".a-visible").checked,
+        }))
+        .filter((a) => a.titre),
+      peche: {
+        sessions: [...pecheBox.querySelectorAll(".session-edit")].map(readSession).filter((x) => x.nom),
+        zones: [...zonesBox.querySelectorAll(".zone-edit")]
+          .map((n) => ({
+            nom: val(n, ".z-nom"),
+            description: val(n, ".z-desc"),
+            poissons: val(n, ".z-poissons"),
+            visible: n.querySelector(".z-visible").checked,
+          }))
+          .filter((z) => z.nom),
+      },
       sessions: [...sessionsBox.querySelectorAll(".session-edit")]
         .map((n) => ({
           nom: val(n, ".s-nom"),
@@ -240,6 +312,7 @@
   editor.addEventListener("change", (e) => {
     dirty = true;
     if (e.target.classList.contains("cat-visible")) setVisible(e.target.closest(".cat"), e.target.checked);
+    if (e.target.classList.contains("z-visible")) setZoneVisible(e.target.closest(".zone-edit"), e.target.checked);
   });
 
   editor.addEventListener("contextmenu", (e) => {
@@ -274,6 +347,7 @@
         break;
       }
       case "item-del": row.remove(); break;
+      case "row-del": btn.closest(".affiche-edit").remove(); break;
       case "item-up": row.previousElementSibling?.before(row); break;
       case "item-down": row.nextElementSibling?.after(row); break;
       case "cat-up": cat.previousElementSibling?.before(cat); break;
@@ -316,6 +390,24 @@
     } catch {
       toast("Impossible de charger le barème de base.", true);
     }
+  });
+
+  $("add-affiche").addEventListener("click", () => {
+    addAffiche({ devise: "$", visible: true }).querySelector(".a-titre").focus();
+    dirty = true;
+  });
+  $("add-peche").addEventListener("click", () => {
+    const n = addSession({ devise: "$", dispo: true }, pecheBox);
+    n.querySelector(".s-nom").placeholder = "Nom de la partie de pêche";
+    n.querySelector(".s-nom").focus();
+    dirty = true;
+  });
+  $("add-zone").addEventListener("click", () => {
+    addZone({ visible: true }).querySelector(".z-nom").focus();
+    dirty = true;
+  });
+  $("preview").addEventListener("click", (e) => {
+    if (dirty && !confirm("Des modifications ne sont pas enregistrées : l'aperçu montrera la dernière version enregistrée. Continuer ?")) e.preventDefault();
   });
 
   $("add-session").addEventListener("click", () => {

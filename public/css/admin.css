@@ -193,3 +193,27 @@ textarea:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
 .hint-row .hint { margin: 0; }
 .hint-row .link-btn { margin: 0; }
 .img-btn:has(img) { background: #2a2a2a; }
+
+/* ---------- Pêche / zones / affiches / affichage ---------- */
+.tab-sub { margin: 1.6rem 0 .8rem; font: 400 1.5rem var(--font-title); color: var(--rust); }
+.tab-sub:first-child { margin-top: 0; }
+.zone-edit .z-poissons { width: 100%; }
+#add-peche, #add-zone { margin-bottom: 1rem; }
+.affiche-edit {
+  display: grid; gap: .5rem; align-items: center; margin-bottom: .6rem;
+  grid-template-columns: 1.4fr 2fr 6rem 4.5rem 6rem auto auto;
+}
+.affiche-edit .check { display: inline-flex; gap: .35rem; align-items: center; font-weight: 600; font-size: .9rem; white-space: nowrap; }
+@media (max-width: 900px) { .affiche-edit { grid-template-columns: 1fr 1fr; } }
+.sections-grid { display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: .8rem 0 1.2rem; }
+.check-card {
+  display: flex; gap: .7rem; align-items: center; cursor: pointer;
+  padding: .9rem 1rem; border-radius: 8px; background: #fffaf0; border: 2px solid rgba(107,63,31,.3);
+}
+.check-card:has(input:checked) { border-color: var(--ok); background: #f3f6e6; }
+.check-card:has(input:not(:checked)) { border-color: var(--ko); background: repeating-linear-gradient(135deg, #fffaf0 0 12px, #f6e6cf 12px 24px); }
+.check-card input { width: 1.3rem; height: 1.3rem; accent-color: var(--ok); }
+.check-card strong { display: block; }
+.check-card small { display: block; opacity: .7; }
+.preview-row { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; }
+.preview-row .hint { margin: 0; flex: 1 1 300px; }

@@ -329,15 +329,6 @@
           "devise": "$",
           "unite": "bobine",
           "dispo": true
-        },
-        {
-          "nom": "Angler Waders",
-          "image": "/img/items/angler-waders.webp",
-          "vente": 960,
-          "rachat": 600,
-          "devise": "$",
-          "unite": "",
-          "dispo": true
         }
       ]
     },
@@ -512,6 +503,126 @@
           "devise": "$",
           "unite": "",
           "dispo": true
+        },
+        {
+          "nom": "Couteau Hunter",
+          "image": "/img/items/couteau-hunter.webp",
+          "vente": 372,
+          "rachat": 232,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Ceinture porte-outils",
+          "image": "/img/items/ceinture-porte-outils.webp",
+          "vente": 400,
+          "rachat": 250,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Sac à dos de randonnée",
+          "image": "/img/items/sac-a-dos-de-randonnee.webp",
+          "vente": 1152,
+          "rachat": 720,
+          "devise": "$",
+          "unite": "plusieurs coloris",
+          "dispo": true
+        }
+      ]
+    },
+    {
+      "nom": "Vêtements",
+      "visible": true,
+      "items": [
+        {
+          "nom": "Chapeau de pêche (camouflage)",
+          "image": "/img/items/chapeau-de-peche-camouflage.webp",
+          "vente": 237,
+          "rachat": 148,
+          "devise": "$",
+          "unite": "plusieurs motifs",
+          "dispo": true
+        },
+        {
+          "nom": "Chapeau de pêche (uni)",
+          "image": "/img/items/chapeau-de-peche-uni.webp",
+          "vente": 178,
+          "rachat": 111,
+          "devise": "$",
+          "unite": "plusieurs coloris",
+          "dispo": true
+        },
+        {
+          "nom": "Chapeau mou camouflage",
+          "image": "/img/items/chapeau-mou-camouflage.webp",
+          "vente": 237,
+          "rachat": 148,
+          "devise": "$",
+          "unite": "plusieurs motifs",
+          "dispo": true
+        },
+        {
+          "nom": "Angler Waders",
+          "image": "/img/items/angler-waders.webp",
+          "vente": 960,
+          "rachat": 600,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        }
+      ]
+    },
+    {
+      "nom": "Arcs, arbalètes & munitions",
+      "visible": true,
+      "items": [
+        {
+          "nom": "Arc",
+          "image": "",
+          "vente": null,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Arbalète",
+          "image": "",
+          "vente": null,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Flèches",
+          "image": "",
+          "vente": null,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Carreaux d'arbalète",
+          "image": "",
+          "vente": null,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
+        },
+        {
+          "nom": "Carquois",
+          "image": "",
+          "vente": null,
+          "rachat": null,
+          "devise": "$",
+          "unite": "",
+          "dispo": true
         }
       ]
     },
@@ -572,5 +683,59 @@
       "devise": "$",
       "dispo": true
     }
-  ]
+  ],
+  "affiches": [
+    {
+      "titre": "Rachat de têtes d'animaux",
+      "texte": "On rachète toutes les têtes d'animaux, minimum 1 % de durabilité.",
+      "prix": 100,
+      "devise": "$",
+      "unite": "unité",
+      "visible": true
+    }
+  ],
+  "sections": {
+    "bareme": true,
+    "chasse": true,
+    "peche": true,
+    "carte": true
+  },
+  "peche": {
+    "sessions": [
+      {
+        "nom": "Initiation à la pêche",
+        "description": "Monter sa canne, choisir l'appât, lancer et ferrer : les bases pour ramener vos premiers poissons.",
+        "niveau": "Débutant",
+        "duree": "≈ 1 h",
+        "places": "4 joueurs max",
+        "prix": 500,
+        "devise": "$",
+        "dispo": true
+      },
+      {
+        "nom": "Pêche avancée",
+        "description": "Choisir la bonne ligne et le bon hameçon selon le poisson visé, et lire les meilleurs coins du marécage.",
+        "niveau": "Confirmé",
+        "duree": "≈ 1 h 30",
+        "places": "3 joueurs max",
+        "prix": 900,
+        "devise": "$",
+        "dispo": true
+      }
+    ],
+    "zones": [
+      {
+        "nom": "Zone 1 (à définir)",
+        "description": "Décrivez ici l'endroit et comment s'y rendre.",
+        "poissons": "Truite, Perche",
+        "visible": true
+      },
+      {
+        "nom": "Zone 2 (à définir)",
+        "description": "Décrivez ici l'endroit et comment s'y rendre.",
+        "poissons": "Carpe, Brochet",
+        "visible": true
+      }
+    ]
+  }
 }

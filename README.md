@@ -27,8 +27,16 @@ Dans l'admin, onglet **Barème** :
 
 En haut de l’admin, **Commandes & réservations** : lien du post « Commande » du forum Discord et texte affiché sous le barème et sous les sessions (avec un bouton vers ce post).
 
+Onglet **Barème** (haut) : **affiches du magasin** (ex : rachat de têtes d'animaux), avec titre, texte, prix, unité, visible.
+
+Onglet **Pêche** : parties de pêche (même format que les sessions) et **zones de pêche** (nom, description, poissons séparés par des virgules, visible/masquée).
+
+Onglet **Affichage du site** : masquer une section entière (Barème, Chasse, Pêche, Nous trouver).
+Le bouton « Aperçu admin du site » ouvre `/?apercu=1` : les sections masquées y restent visibles (hachurées)
+uniquement dans le navigateur où l'admin est connecté.
+
 Onglet **Sessions de chasse** :
-- sessions de chasse (une par bête) : nom, description, étiquette, durée, places, prix, et « Places dispo » (décochée = affichée « Complet »).
+- sessions de chasse (une par bête) : nom, description, étiquette, durée, places, prix, et « Disponible » (décochée = affichée « Non disponible »).
 
 Le bouton **Enregistrer** met le site à jour immédiatement.
 
